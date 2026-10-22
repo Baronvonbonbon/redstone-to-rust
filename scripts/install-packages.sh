@@ -13,7 +13,7 @@ EARLY=(
   cowsay sl figlet toilet lolcat tree nano less file
   bsdgames moon-buggy ninvaders
   # Stage 2-3: Python
-  python3 idle3 thonny python3-pygame python3-pgzero python3-doc
+  python3 python3-tk idle3 thonny python3-pygame python3-pgzero python3-doc
   # Stage 4: logic circuits (Digital needs Java), Luanti + Mesecons
   default-jre minetest minetest-mod-mesecons
   # Stage 5: tools, labs, breakable lab VMs

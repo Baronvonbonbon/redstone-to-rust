@@ -73,8 +73,7 @@ in Minecraft, and Rust is the systems language the course ends up in.
 
 | Stages | State |
 |---|---|
-| 0–1 | Fully scripted lessons, with tested labs |
-| 2 | Stage overview with lesson list, resources and checkpoint; lesson scripts to come |
+| 0–2 | Fully scripted lessons, with tested labs and programs |
 | 3–13 | Outlined in [docs/SYLLABUS.md](docs/SYLLABUS.md); stage folders not written yet |
 
 Contributions are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
