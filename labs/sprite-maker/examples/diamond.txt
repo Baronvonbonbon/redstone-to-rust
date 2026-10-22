@@ -1,0 +1,8 @@
+# A diamond to catch.
+...cc...
+..cwcc..
+.cwcccc.
+cccccccc
+.cccccc.
+..cccc..
+...cc...

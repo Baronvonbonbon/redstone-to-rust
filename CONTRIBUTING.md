@@ -14,7 +14,8 @@ page?**
 - Write kid-facing text so a strong young reader can read it aloud. Silly
   is welcome; mean is not.
 - Number lessons `N.M`, and name files `NN-short-name.md` inside the stage folder.
-- Update the stage README's lesson table and [docs/SYLLABUS.md](docs/SYLLABUS.md).
+- Update the stage README's lesson table, and the stage's row in
+  [docs/SYLLABUS.md](docs/SYLLABUS.md) if its length or prerequisites change.
 
 ## Rules for resources
 

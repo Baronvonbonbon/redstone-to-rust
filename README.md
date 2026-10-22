@@ -66,6 +66,7 @@ in Minecraft, and Rust is the systems language the course ends up in.
 | `labs/mineshaft/` | **Mineshaft:** a 20-level offline wargame (like OverTheWire Bandit) in Docker |
 | `labs/underpants-heist/` | **The Great Underpants Heist:** a command-line detective mystery |
 | `labs/treasure-cave/` | **Treasure Cave:** a folder maze for practicing `find` and wildcards |
+| `labs/sprite-maker/` | **Sprite Maker:** turns text pixel art into pictures for Pygame Zero games |
 | `scripts/` | Install packages, create the learner's account, download the offline library |
 | `PASSPORT.md` | The learner's printable progress passport |
 
@@ -73,7 +74,7 @@ in Minecraft, and Rust is the systems language the course ends up in.
 
 | Stages | State |
 |---|---|
-| 0–2 | Fully scripted lessons, with tested labs and programs |
+| 0–3 | Fully scripted lessons, with tested labs and programs |
 | 3–13 | Outlined in [docs/SYLLABUS.md](docs/SYLLABUS.md); stage folders not written yet |
 
 Contributions are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).

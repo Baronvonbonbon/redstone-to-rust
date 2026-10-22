@@ -75,11 +75,12 @@ computer reboots. The other commands you'll need:
 The lessons tell you when to run these:
 
 ```bash
-./scripts/give-lab.sh sam cave      # Lesson 1.10
+./scripts/give-lab.sh sam cave      # Lesson 1.11
 ./scripts/give-lab.sh sam heist     # Lesson 1.13
+./scripts/give-lab.sh sam sprites   # Lesson 3.13 (a tool, so there's no answer)
 ```
 
-Each one prints the answer for you. Don't let the learner see it!
+The cave and the heist print the answer for you. Don't let the learner see it!
 
 ## Later: a breakable computer (Stage 5)
 

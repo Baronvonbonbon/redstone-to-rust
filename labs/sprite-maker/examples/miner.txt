@@ -1,0 +1,9 @@
+# A little miner, 8 x 8. Use it as the player.
+..nnnn..
+.nnnnnn.
+.tkttkt.
+.tttttt.
+..cccc..
+.bccccb.
+..bbbb..
+..n..n..
