@@ -21,12 +21,14 @@ by hand once. **web** = needs the internet each time.
 | **Treasure Cave** (this repo) | 1 | `find`, wildcards, `tree` | built in | MIT |
 | **The Great Underpants Heist** (this repo) | 1 | `grep`, pipes, `head`/`tail` | built in | MIT |
 | **Mineshaft** (this repo) | 1, 5, 8 | 20-level Bandit-style wargame | built in (Docker) | MIT |
+| **The Sandbox** (this repo) | 5 | A breakable Linux computer where the learner is admin | built in (Docker) | MIT |
+| **Minecraft database** (this repo) | 5 | SQL practice (`give-lab sql`) | built in | MIT |
 | bsdgames, moon-buggy, ninvaders | any | Terminal games for free play | apt | BSD/GPL |
 | Luanti (Minetest) + Mesecons | 4 | Redstone-style logic circuits | apt | LGPL |
 | Digital (hneemann) | 4, 6 | Logic circuit simulator | lib | GPL |
 | nandgame.com | 4 | Build a computer from NAND (puzzle game) | web, no account | free |
 | Oh My Git! | 5 | Git, as a card game | hand (ohmygit.org) | Blue Oak |
-| Learn Git Branching | 5 | Git branches, visually | lib | MIT |
+| Learn Git Branching | 5 (optional) | Git branches, visually | web (learngitbranching.js.org, no account) | MIT |
 | Command Line Murder Mystery | 5 (optional) | grep practice; **murder theme, so preview it** | lib | free |
 | SQL Murder Mystery | 5 (optional) | SQL; **murder theme, so preview it** | lib | MIT |
 | Rustlings | 9 | Small Rust exercises in the terminal | cargo (online once) | MIT |

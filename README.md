@@ -67,6 +67,8 @@ in Minecraft, and Rust is the systems language the course ends up in.
 | `labs/underpants-heist/` | **The Great Underpants Heist:** a command-line detective mystery |
 | `labs/treasure-cave/` | **Treasure Cave:** a folder maze for practicing `find` and wildcards |
 | `labs/sprite-maker/` | **Sprite Maker:** turns text pixel art into pictures for Pygame Zero games |
+| `labs/sandbox/` | **The Sandbox:** a breakable Linux computer in Docker where the learner is the admin (Stage 5) |
+| `labs/sql/` | A Minecraft mob database for learning SQL (Stage 5) |
 | `scripts/` | Install packages, create the learner's account, download the offline library |
 | `PASSPORT.md` | The learner's printable progress passport |
 
@@ -74,8 +76,8 @@ in Minecraft, and Rust is the systems language the course ends up in.
 
 | Stages | State |
 |---|---|
-| 0–4 | Fully scripted lessons, with tested labs and programs |
-| 5–13 | Outlined in [docs/SYLLABUS.md](docs/SYLLABUS.md); stage folders not written yet |
+| 0–5 | Fully scripted lessons, with tested labs and programs |
+| 6–13 | Outlined in [docs/SYLLABUS.md](docs/SYLLABUS.md); stage folders not written yet |
 
 Contributions are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
 

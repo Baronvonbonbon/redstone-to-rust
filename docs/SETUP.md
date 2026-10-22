@@ -79,6 +79,7 @@ The lessons tell you when to run these:
 ./scripts/give-lab.sh sam heist     # Lesson 1.13
 ./scripts/give-lab.sh sam sprites   # Lesson 3.13 (a tool, so there's no answer)
 ./scripts/give-lab.sh sam redstone  # Lesson 4.7 (a Luanti world, so there's no answer)
+./scripts/give-lab.sh sam sql       # Lesson 5.14 (a database file, so there's no answer)
 ```
 
 The cave and the heist print the answer for you. Don't let the learner see it!
@@ -86,21 +87,36 @@ The cave and the heist print the answer for you. Don't let the learner see it!
 ## Later: a breakable computer (Stage 5)
 
 In Stage 5 the learner gets a computer where they *are* the admin, and
-where breaking things is fine. Pick one:
+where breaking things is fine. The lessons are written for the Sandbox;
+a Pi or a VM works too.
 
-**Option A: Raspberry Pi (best).** It's a real, separate machine, and it
+**The Sandbox (the default).** A small Linux computer in Docker, like
+the Mineshaft. From your own account, once, while online:
+
+```bash
+cd labs/sandbox
+./sandbox.sh build sam    # the learner's account name; about 5 minutes
+./sandbox.sh start
+```
+
+The learner logs in with `ssh sam@localhost -p 2222` (first password:
+their name). `./sandbox.sh reset` makes a brand-new one in seconds. The
+[Sandbox handbook](../labs/sandbox/README.md) has the rest.
+
+**Option B: Raspberry Pi.** It's a real, separate machine, and it
 feels like theirs. Use Raspberry Pi Imager (`flatpak install flathub
 org.raspberrypi.rpi-imager`, or download it from raspberrypi.com) to write
 **Raspberry Pi OS Lite** to a microSD card. In the imager's settings,
 turn on SSH and set the username to the learner's name. Keep a second,
 spare card with a fresh image on it, so a "broken" Pi is a 2-minute fix.
 
-**Option B: a virtual machine in GNOME Boxes** (installed in step 2).
+**Option C: a virtual machine in GNOME Boxes** (installed in step 2).
 Download a Debian or Ubuntu Server ISO while online, then use Boxes to
 make a VM. **Take a snapshot** right after installing, so "undo
 everything" is one click.
 
-Lesson 5.1 walks through either option.
+The [Sandbox handbook](../labs/sandbox/README.md) says how to adapt the
+lessons for a Pi or a VM.
 
 ## Later: Rust (Stage 9)
 
@@ -124,6 +140,7 @@ tells you when.
 - [ ] Learner account made; learner can log in
 - [ ] Offline library downloaded; hand downloads done
 - [ ] Mineshaft built, started and tested
+- [ ] (Before Stage 5) Sandbox built and started
 - [ ] Hacker's Pledge printed (`docs/HACKER-PLEDGE.md`)
 - [ ] Passport printed (`PASSPORT.md`)
 - [ ] A paper notebook for the lab notebook

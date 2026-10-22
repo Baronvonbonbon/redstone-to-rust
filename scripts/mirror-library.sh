@@ -28,7 +28,6 @@ fetch() { # fetch URL FILE
 echo "Games (Stages 1, 5)..."
 clone https://gitlab.com/slackermedia/bashcrawl.git          games/bashcrawl
 clone https://github.com/mprat/Terminus.git                  games/terminus
-clone https://github.com/pcottle/learnGitBranching.git       games/learn-git-branching
 clone https://github.com/veltman/clmystery.git               games/clmystery
 clone https://github.com/NUKnightLab/sql-mysteries.git       games/sql-mysteries
 

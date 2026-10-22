@@ -120,8 +120,9 @@ it on the fridge.
 - **Never add the learner's account to the `docker` group.** That group
   is secretly as powerful as the admin. You (the guide) start the labs;
   the learner connects to them.
-- From Stage 5, the learner gets a **breakable computer** (a Raspberry
-  Pi or a virtual machine) where they *are* the admin. Breaking it and
+- From Stage 5, the learner gets a **breakable computer** (the
+  Sandbox, a Raspberry Pi or a virtual machine) where they *are* the
+  admin. Breaking it and
   fixing it is part of the curriculum.
 - Security stages come with the [Hacker's Pledge](HACKER-PLEDGE.md).
   Read it together and sign it before Stage 1's Mineshaft.
