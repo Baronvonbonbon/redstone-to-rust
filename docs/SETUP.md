@@ -78,6 +78,7 @@ The lessons tell you when to run these:
 ./scripts/give-lab.sh sam cave      # Lesson 1.11
 ./scripts/give-lab.sh sam heist     # Lesson 1.13
 ./scripts/give-lab.sh sam sprites   # Lesson 3.13 (a tool, so there's no answer)
+./scripts/give-lab.sh sam redstone  # Lesson 4.7 (a Luanti world, so there's no answer)
 ```
 
 The cave and the heist print the answer for you. Don't let the learner see it!

@@ -14,8 +14,8 @@ EARLY=(
   bsdgames moon-buggy ninvaders
   # Stage 2-3: Python
   python3 python3-tk idle3 thonny python3-pygame python3-pgzero python3-doc
-  # Stage 4: logic circuits (Digital needs Java), Luanti + Mesecons
-  default-jre minetest minetest-mod-mesecons
+  # Stage 4: hex dumps, logic circuits (Digital needs Java), Luanti + Mesecons
+  xxd default-jre minetest minetest-mod-mesecons
   # Stage 5: tools, labs, breakable lab VMs
   git vim sqlite3 unzip openssh-client netcat-openbsd docker.io gnome-boxes
 )
