@@ -1,0 +1,25 @@
+// Compiler test 1 (Lesson 8.15): expressions, function calls, do and return.
+// Each answer goes into the RAM, starting at 8000, where the test reads it.
+class Main {
+    function void main() {
+        do Memory.poke(8000, 1 + 2 * 3);         // Jack works left to right: 9
+        do Memory.poke(8001, 1 + (2 * 3));       // brackets first: 7
+        do Memory.poke(8002, -5 + 12);           // 7
+        do Memory.poke(8003, Main.double(21));   // 42
+        do Memory.poke(8004, 100 / 7);           // 14
+        do Memory.poke(8005, ~0);                // -1
+        do Memory.poke(8006, Main.add3(1, 20, 300));   // 321
+        do Memory.poke(8007, (3 < 5) & (5 > 3)); // true is -1
+        do Memory.poke(8008, 4 = 5);             // false is 0
+        do Memory.poke(8009, true);              // -1
+        return;
+    }
+
+    function int double(int n) {
+        return n + n;
+    }
+
+    function int add3(int a, int b, int c) {
+        return a + b + c;
+    }
+}

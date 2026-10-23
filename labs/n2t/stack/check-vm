@@ -1,0 +1,31 @@
+#!/bin/bash
+# check-vm: translates a test with YOUR VM translator, and runs the
+# official test on the CPU Emulator.
+#   check-vm StackArithmetic/SimpleAdd     (from ~/lab/n2t/projects/7 or 8)
+tools=/srv/redstone-library/tools/nand2tetris/tools
+folder=$(realpath "${1:?which test folder?}")
+name=$(basename "$folder")
+translator=$(dirname "$(dirname "$folder")")/vm.py
+[[ -f "$translator" ]] || { echo "There's no $translator."; exit 1; }
+if [[ -f "$folder/Sys.vm" ]]; then
+    what="$folder"                 # a whole program: translate the folder
+else
+    what="$folder/$name.vm"        # one file
+fi
+rm -f "$folder/$name.asm"
+python3 "$translator" "$what" || { echo "NOT YET: vm.py crashed (above)."; exit 1; }
+[[ -f "$folder/$name.asm" ]] || { echo "NOT YET: vm.py didn't make $name.asm in $folder."; exit 1; }
+result=$("$tools/CPUEmulator.sh" "$folder/$name.tst" 2>&1 | tail -1)
+if [[ "$result" == *successfully* ]]; then
+    echo "ALL GOOD! $name passes."
+else
+    echo "NOT YET. The CPU Emulator says:"
+    echo "    $result"
+    if [[ "$result" == *"Comparison failure"* ]]; then
+        line=${result##* }
+        echo "Line $line of the test. Yours, then the right one:"
+        sed -n 1p "$folder/$name.cmp"
+        sed -n "${line}p" "$folder/$name.out"
+        sed -n "${line}p" "$folder/$name.cmp"
+    fi
+fi

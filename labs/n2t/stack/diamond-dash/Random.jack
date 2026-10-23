@@ -1,0 +1,19 @@
+// Numbers that look random. Each one is worked out from the one before.
+class Random {
+    static int seed;
+
+    function void setSeed(int n) {
+        let seed = n;
+        return;
+    }
+
+    /** Gives back a number from 0 up to (but not including) limit. */
+    function int below(int limit) {
+        let seed = Random.mod((seed * 7) + 11, 509);
+        return Random.mod(seed, limit);
+    }
+
+    function int mod(int a, int b) {
+        return a - ((a / b) * b);
+    }
+}

@@ -1,0 +1,22 @@
+#!/bin/bash
+# check-xml: compares YOUR tokenizer's or parser's XML with the right answer.
+#   check-xml tokens Square/Main.jack     (from ~/lab/n2t/projects/10)
+#   check-xml parse Square/Main.jack
+tools=/srv/redstone-library/tools/nand2tetris/tools
+here=~/lab/n2t/projects/10
+mode=${1:?tokens or parse?}
+jack=$(realpath "${2:?which .jack file?}")
+case "$mode" in
+    tokens) program=tokenizer.py; right="${jack%.jack}T.xml" ;;
+    parse)  program=parser.py;    right="${jack%.jack}.xml" ;;
+    *)      echo "The first word should be tokens or parse."; exit 1 ;;
+esac
+mine=$(mktemp /tmp/checkxmlXXXXXX)
+python3 "$here/$program" "$jack" > "$mine" || { echo "NOT YET: $program crashed (above)."; exit 1; }
+result=$("$tools/TextComparer.sh" "$mine" "$right")
+if [[ "$result" == *successfully* ]]; then
+    echo "ALL GOOD! All $(wc -l < "$right") lines match."
+else
+    echo "NOT YET. ${result%%:*}, counting from 0. Yours first, then the right one:"
+    echo "$result" | tail -n +2 | sed 's/^/    /'
+fi

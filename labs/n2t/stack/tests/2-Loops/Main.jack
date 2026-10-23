@@ -1,0 +1,63 @@
+// Compiler test 2 (Lesson 8.15): let, var, if, else, while, and statics.
+class Main {
+    static int calls;
+
+    function void main() {
+        var int i, total;
+        let i = 1;
+        let total = 0;
+        while (i < 11) {
+            let total = total + i;
+            let i = i + 1;
+        }
+        do Memory.poke(8000, total);                 // 1 + 2 + ... + 10 = 55
+        do Memory.poke(8001, Main.biggest(4, 9, 2)); // 9
+        do Memory.poke(8002, Main.biggest(8, 3, 5)); // 8
+        do Memory.poke(8003, Main.factorial(7));     // 5040
+        do Memory.poke(8004, Main.fib(10));          // 55
+        do Memory.poke(8005, Main.collatz(27));      // 111 steps
+        let calls = 0;
+        do Main.fib(6);
+        do Memory.poke(8006, calls);                 // fib(6) calls itself 25 times in all
+        return;
+    }
+
+    function int biggest(int a, int b, int c) {
+        if (a > b) {
+            if (a > c) { return a; } else { return c; }
+        } else {
+            if (b > c) { return b; }
+        }
+        return c;
+    }
+
+    function int factorial(int n) {
+        var int answer;
+        let answer = 1;
+        while (n > 1) {
+            let answer = answer * n;
+            let n = n - 1;
+        }
+        return answer;
+    }
+
+    function int fib(int n) {
+        let calls = calls + 1;
+        if (n < 2) { return n; }
+        return Main.fib(n - 1) + Main.fib(n - 2);
+    }
+
+    function int collatz(int n) {
+        var int steps;
+        let steps = 0;
+        while (~(n = 1)) {
+            if ((n & 1) = 0) {
+                let n = n / 2;
+            } else {
+                let n = (3 * n) + 1;
+            }
+            let steps = steps + 1;
+        }
+        return steps;
+    }
+}

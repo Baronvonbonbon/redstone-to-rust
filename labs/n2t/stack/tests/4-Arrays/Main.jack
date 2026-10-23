@@ -1,0 +1,44 @@
+// Compiler test 4 (Lesson 8.16): arrays, strings, and objects in arrays.
+class Main {
+    function void main() {
+        var Array squares, order, mobs;
+        var String word, hi;
+        var int i, total;
+        let squares = Array.new(10);
+        let i = 0;
+        while (i < 10) {
+            let squares[i] = i * i;
+            let i = i + 1;
+        }
+        do Memory.poke(8000, squares[7]);           // 49
+        let total = 0;
+        let i = 0;
+        while (i < 10) {
+            let total = total + squares[i];
+            let i = i + 1;
+        }
+        do Memory.poke(8001, total);                // 285
+        let order = Array.new(3);
+        let order[0] = 2;
+        let order[1] = 0;
+        let order[2] = 1;
+        do Memory.poke(8002, squares[order[0]]);    // squares[2] = 4
+        let squares[order[2]] = squares[order[0]] + 100;
+        do Memory.poke(8003, squares[1]);           // 104
+        let word = "Creeper";
+        do Memory.poke(8004, word.length());        // 7
+        do Memory.poke(8005, word.charAt(0));       // 67, a capital C
+        let hi = "Hi!";
+        do Memory.poke(8006, hi.charAt(2));         // 33, the !
+        let mobs = Array.new(2);
+        let mobs[0] = Creeper.new(1, 1);
+        let mobs[1] = Creeper.new(4, 5);
+        do Memory.poke(8007, Main.gap(mobs[0], mobs[1]));  // 3 + 4 = 7
+        do squares.dispose();
+        return;
+    }
+
+    function int gap(Creeper a, Creeper b) {
+        return a.distanceTo(b);
+    }
+}

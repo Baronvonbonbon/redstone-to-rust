@@ -10,6 +10,10 @@ Schocken. This folder holds the course's own extra material:
   aren't part of the Nand to Tetris projects: CreeperAlarm and Vote
   (Lesson 6.1), Sum (6.10), Block (6.11), Same and Squares (the Stage 6
   checkpoint), and `creeper16.txt` (6.14).
+- [VM-CARD.md](VM-CARD.md) and [JACK-CARD.md](JACK-CARD.md): one-page
+  references for Stage 8. Print them too.
+- `stack/`: Stage 8's test scripts, compiler tests and an example game
+  (see [Stage 8](#stage-8-the-software-stack) below).
 
 The Nand to Tetris tools and project files themselves are **not** in
 this repository: they're downloaded into the offline library.
@@ -89,6 +93,62 @@ row. The `.out` file stops at that row, so
   projects and tests (the course's checks didn't test it), but the
   learner's files live in the browser's storage rather than in
   `~/lab/n2t`, so download them often if you switch.
+
+## Stage 8: the software stack
+
+Stage 8 uses the same download, plus three more of its tools, and a
+second lab with the course's own test scripts. Before Lesson 8.6, from
+your own account:
+
+```
+./scripts/give-lab.sh LEARNER stack
+```
+
+It makes `~/lab/n2t/stack/`, with:
+
+| File | What it does | Lessons |
+|---|---|---|
+| `check-vm FOLDER` | runs the learner's `vm.py` on an official Project 7 or 8 test, then the test on the CPU Emulator | 8.7–8.10, 8.18 |
+| `check-xml tokens\|parse FILE.jack` | compares the learner's tokenizer or parser output with the official XML | 8.13, 8.14 |
+| `check-jack FOLDER` | compiles a test with the learner's compiler, runs it on the VM Emulator, and compares the answers it leaves in `RAM[8000]` onwards | 8.15, 8.16 |
+| `check-os Math\|Memory\|Array` | runs the official Project 12 test on the learner's OS class | 8.17 |
+| `tests/1-Sums` to `tests/4-Arrays` | the course's own compiler tests, each a Jack program with known answers | 8.15, 8.16 |
+| `diamond-dash/` | Diamond Dash, an example Jack game written for the course | 8.12, 8.18 |
+
+Lesson 8.6 links the four scripts into `~/bin`, with two more tools:
+`vme` (the VM Emulator) and `jackc` (the official Jack compiler). Every
+script prints `ALL GOOD!` or `NOT YET.` with the wrong row or the error.
+
+### Things to know for Stage 8
+
+- **Still no answer key.** Projects 7 to 12 are the authors' projects
+  too. The lessons give the book's plans in words and VM templates, and
+  starting programs for the parts that aren't the project itself
+  (reading files, printing XML); the learner writes the translator, the
+  compiler and the OS. Please keep their work private.
+- **Loading a folder in the VM Emulator** asks whether to use the
+  built-in OS: answer **Yes**. A program that ends shows `Program
+  Halted: Main.main finished execution`.
+- **On the command line, the VM Emulator has no built-in OS.** That's
+  why `check-jack` and `check-os` copy the OS, as VM code, from
+  `tools/OS/`, and give the tests more steps than the official `.tst`
+  files ask for (5,000,000): the OS as VM code takes a while to start.
+  Each check takes a few seconds.
+- **The CPU Emulator starts with `RAM[0]` at 0.** The official tests set
+  `SP` themselves. For a hand-made test before Lesson 8.10 (which adds
+  the bootstrap), set `RAM[0]` to 256 in the window first.
+- **The Hack card's spellings.** The CPU Emulator accepts `M+D`, but the
+  learner's own assembler only knows `D+M` (the card's). Lesson 8.7 warns
+  about this, because Lesson 8.18 feeds the translator's output to that
+  assembler.
+- **The 32K ROM.** A straightforward translator turns a game plus the OS
+  into about 40,000–50,000 instructions, too many for Hack's ROM
+  (`Program too large`). Lesson 8.18 shrinks it with shared routines, as
+  the book suggests.
+- **Speed.** The CPU Emulator runs everything as Hack instructions, so
+  a game built with the learner's whole toolchain runs slowly there.
+  `build-all` (Lesson 8.18) uses the official `Screen.vm` and removes
+  `Sys.wait` for that reason.
 
 ## Licences
 

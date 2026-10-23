@@ -1,0 +1,52 @@
+// A creeper with a place and some health.
+class Creeper {
+    field int x, y, health;
+    static int count;
+
+    constructor Creeper new(int startX, int startY) {
+        let x = startX;
+        let y = startY;
+        let health = 20;
+        let count = count + 1;
+        return this;
+    }
+
+    method void move(int dx, int dy) {
+        let x = x + dx;
+        let y = y + dy;
+        return;
+    }
+
+    method void hit(int damage) {
+        let health = health - damage;
+        if (health < 0) { let health = 0; }
+        return;
+    }
+
+    method boolean isAlive() {
+        return health > 0;
+    }
+
+    method int getX() { return x; }
+    method int getY() { return y; }
+    method int getHealth() { return health; }
+
+    method int distanceTo(Creeper other) {
+        return Creeper.abs(x - other.getX()) + Creeper.abs(y - other.getY());
+    }
+
+    method void hitTwice(int damage) {
+        do hit(damage);
+        do hit(damage);
+        return;
+    }
+
+    function int abs(int n) {
+        if (n < 0) { return -n; }
+        return n;
+    }
+
+    function int howMany() {
+        return count;
+    }
+}

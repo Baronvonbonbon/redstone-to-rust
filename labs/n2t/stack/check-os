@@ -1,0 +1,29 @@
+#!/bin/bash
+# check-os: tests one class of YOUR operating system (Math, Memory or
+# Array) with the official Nand to Tetris test for it.
+#   check-os Math
+tools=/srv/redstone-library/tools/nand2tetris/tools
+os=~/lab/n2t/projects/12
+class=${1:?which class? Math, Memory or Array}
+[[ -f "$os/$class.jack" ]] || { echo "There's no $os/$class.jack."; exit 1; }
+[[ -f "$os/${class}Test/$class""Test.tst" ]] || { echo "check-os can test Math, Memory and Array. Look at the others in the window."; exit 1; }
+tmp=$(mktemp -d /tmp/checkosXXXXXX)      # no dot in the name, for the tools
+cp -r "$os/${class}Test"/* "$tmp/"
+cp "$os/$class.jack" "$tmp/"
+errors=$("$tools/JackCompiler.sh" "$tmp" 2>&1 | grep -v '^Compiling')
+[[ -z "$errors" ]] || { echo "NOT YET. The Jack compiler says:"; echo "    $errors"; exit 1; }
+for vm in "$tools"/OS/*.vm; do              # the rest of the OS
+    [[ -e "$tmp/$(basename "$vm")" ]] || cp "$vm" "$tmp/"
+done
+sed -i 's/repeat [0-9]*/repeat 5000000/' "$tmp/${class}Test.tst"   # time for the OS to start
+result=$("$tools/VMEmulator.sh" "$tmp/${class}Test.tst" 2>&1 | tail -1)
+if [[ "$result" == *successfully* ]]; then
+    echo "ALL GOOD! Your $class passes its test."
+elif [[ "$result" == *"Comparison failure"* ]]; then
+    echo "NOT YET. Some answers are wrong. Yours, then the right ones (RAM[8000] first):"
+    tail -1 "$tmp/${class}Test.out"
+    tail -1 "$tmp/${class}Test.cmp"
+else
+    echo "NOT YET. The program stopped with an error before it finished:"
+    echo "    $result"
+fi

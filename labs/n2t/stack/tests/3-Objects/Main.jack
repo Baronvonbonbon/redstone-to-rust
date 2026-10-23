@@ -1,0 +1,23 @@
+// Compiler test 3 (Lesson 8.16): constructors, fields, methods and this.
+class Main {
+    function void main() {
+        var Creeper a, b;
+        let a = Creeper.new(3, 4);
+        let b = Creeper.new(10, 1);
+        do a.move(2, -1);
+        do Memory.poke(8000, a.getX());          // 5
+        do Memory.poke(8001, a.getY());          // 3
+        do Memory.poke(8002, b.getX());          // 10, b didn't move
+        do b.hit(7);
+        do Memory.poke(8003, b.getHealth());     // 13
+        do Memory.poke(8004, a.getHealth());     // 20
+        do b.hitTwice(5);
+        do Memory.poke(8005, b.getHealth());     // 3
+        do b.hit(50);
+        do Memory.poke(8006, b.isAlive());       // false: 0
+        do Memory.poke(8007, a.isAlive());       // true: -1
+        do Memory.poke(8008, a.distanceTo(b));   // 5 + 2 = 7
+        do Memory.poke(8009, Creeper.howMany()); // 2
+        return;
+    }
+}

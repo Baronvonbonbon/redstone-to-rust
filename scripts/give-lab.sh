@@ -9,11 +9,12 @@
 #   ./scripts/give-lab.sh LEARNER sql      # Lesson 5.14: the Minecraft database (a file, no answers)
 #   ./scripts/give-lab.sh LEARNER n2t      # Lesson 6.1: Nand to Tetris projects + practice chips (no answers)
 #   ./scripts/give-lab.sh LEARNER algo     # Lesson 7.1: the Stage 7 checker and mazes (answers stay in labs/algo/answers)
+#   ./scripts/give-lab.sh LEARNER stack    # Lesson 8.6: Stage 8 check scripts, compiler tests, Diamond Dash (no answers)
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo}
-lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo}
+name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack}
+lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack}
 home=$(getent passwd "$name" | cut -d: -f6)
 [[ -n "$home" ]] || { echo "No account called $name"; exit 1; }
 
@@ -25,7 +26,8 @@ case "$lab" in
   sql)   dest="$home/lab/sql"; script= ;;
   n2t)   dest="$home/lab/n2t"; script= ;;
   algo)  dest="$home/lab/algo"; script= ;;
-  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone, sql, n2t or algo)"; exit 1 ;;
+  stack) dest="$home/lab/n2t/stack"; script= ;;
+  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone, sql, n2t, algo or stack)"; exit 1 ;;
 esac
 
 if sudo test -e "$dest"; then
@@ -52,6 +54,10 @@ elif [[ "$lab" == algo ]]; then
   sudo mkdir -p "$dest"
   sudo cp labs/algo/check.py "$dest/"
   sudo cp -r labs/algo/mazes "$dest/mazes"
+elif [[ "$lab" == stack ]]; then
+  sudo mkdir -p "$dest"
+  sudo cp -r labs/n2t/stack/. "$dest/"
+  sudo chmod +x "$dest"/check-*
 else
   # A new world: flat, no trees or caves, creative, no damage, every Mesecons mod on.
   # Luanti builds the land the first time it's played.
@@ -71,3 +77,7 @@ else
   dest="$home/.minetest"
 fi
 sudo chown -R "$name:" "$dest"
+# If this script made ~/lab (or ~/lab/n2t) on the way, give those to the learner too.
+for d in "$home/lab" "$home/lab/n2t"; do
+  if sudo test -d "$d"; then sudo chown "$name:" "$d"; fi
+done

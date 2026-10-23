@@ -54,8 +54,9 @@ in Luanti, an open-source Minecraft-like game, using the Mesecons
 redstone-style mod (Stage 4). A maze solver for a block world (Stage 7).
 
 **The Mineshaft thread.** Levels 0–9 in Stage 1, levels 10–19 in Stage 5,
-and in Stage 8 the learner reads `door.c` to see *how* level 13's setuid
-trick worked. In Stage 11 they design levels for someone else.
+and in Stage 8 the learner writes small command-line tools of their own in
+C, like the ones they used down the Mineshaft. In Stage 11 they design
+levels for someone else.
 
 **The "build it again" thread.** The Nand to Tetris assembler is written
 in Python (Stage 6) and rewritten in Rust (Stage 9). The vault-cracker

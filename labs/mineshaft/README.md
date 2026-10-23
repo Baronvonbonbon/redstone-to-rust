@@ -8,8 +8,7 @@ every build.
 
 - **Learner's view:** [LEVELS.md](LEVELS.md) (every level's goal; each one is
   also in `GOAL.txt` inside the level).
-- **Stage 1** uses levels 0–9, **Stage 5** uses levels 10–19, and **Stage 8**
-  reads `door.c` to see how level 13 worked.
+- **Stage 1** uses levels 0–9, and **Stage 5** uses levels 10–19.
 
 ## Running it
 

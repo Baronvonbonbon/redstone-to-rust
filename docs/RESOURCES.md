@@ -64,6 +64,7 @@ account of their own.
 | *Algorithms*, Jeff Erickson | 7+ | lib (PDF) | CC BY |
 | **Algorithms checker and mazes** (this repo) | 7 | built in (`labs/algo`) | MIT |
 | *Beej's Guide to C Programming* | 8 | web (PDF free) | CC BY-NC-ND |
+| **VM card, Jack card, Stage 8 check scripts, compiler tests, Diamond Dash** (this repo) | 8 | built in (`labs/n2t`, `labs/n2t/stack`) | CC BY-SA / MIT |
 | *The Rust Programming Language* | 9 | `rustup doc --book` | MIT/Apache |
 | *Rust by Example* | 9 | `rustup doc --rust-by-example` | MIT/Apache |
 | *Comprehensive Rust* (Google) | 9 | lib | Apache |

@@ -1,0 +1,154 @@
+// The game: a grid of 16-pixel squares, 32 across and 14 down.
+class DashGame {
+    field int playerX, playerY, creeperX, creeperY, diamondX, diamondY;
+    field int score, ticks, speed;
+
+    constructor DashGame new() {
+        let playerX = 2;
+        let playerY = 2;
+        let creeperX = 29;
+        let creeperY = 11;
+        let score = 0;
+        let speed = 40;
+        return this;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    /** Waits for a key, counting while it waits, to start the random numbers. */
+    method void waitToStart() {
+        var int count;
+        do Output.moveCursor(10, 20);
+        do Output.printString("DIAMOND DASH");
+        do Output.moveCursor(12, 12);
+        do Output.printString("Press any key to start");
+        let count = 0;
+        while (Keyboard.keyPressed() = 0) {
+            let count = count + 1;
+            if (count > 500) { let count = 0; }
+        }
+        do Random.setSeed(count);
+        while (~(Keyboard.keyPressed() = 0)) { }
+        do Screen.clearScreen();
+        return;
+    }
+
+    method void run() {
+        var int key, lastKey;
+        var boolean caught;
+        do waitToStart();
+        do Screen.drawLine(0, 226, 511, 226);
+        do newDiamond();
+        do drawPlayer(true);
+        do drawCreeper();
+        do showScore();
+        let lastKey = 0;
+        let caught = false;
+        while (~caught) {
+            let key = Keyboard.keyPressed();
+            if (~(key = lastKey)) {
+                if (key = 130) { do movePlayer(-1, 0); }   // left arrow
+                if (key = 131) { do movePlayer(0, -1); }   // up arrow
+                if (key = 132) { do movePlayer(1, 0); }    // right arrow
+                if (key = 133) { do movePlayer(0, 1); }    // down arrow
+                let lastKey = key;
+            }
+            if ((playerX = diamondX) & (playerY = diamondY)) {
+                let score = score + 1;
+                if (speed > 8) { let speed = speed - 2; }
+                do showScore();
+                do newDiamond();
+            }
+            let ticks = ticks + 1;
+            if (ticks > speed) {
+                let ticks = 0;
+                do moveCreeper();
+            }
+            let caught = (playerX = creeperX) & (playerY = creeperY);
+            do Sys.wait(10);
+        }
+        do Output.moveCursor(10, 25);
+        do Output.printString("BOOM!");
+        return;
+    }
+
+    method void movePlayer(int dx, int dy) {
+        if ((playerX + dx < 0) | (playerX + dx > 31)) { return; }
+        if ((playerY + dy < 0) | (playerY + dy > 13)) { return; }
+        do drawPlayer(false);
+        let playerX = playerX + dx;
+        let playerY = playerY + dy;
+        do drawPlayer(true);
+        return;
+    }
+
+    method void moveCreeper() {
+        do DashGame.clear(creeperX, creeperY);
+        if (creeperX < playerX) { let creeperX = creeperX + 1; }
+        else { if (creeperX > playerX) { let creeperX = creeperX - 1; }
+        else { if (creeperY < playerY) { let creeperY = creeperY + 1; }
+        else { if (creeperY > playerY) { let creeperY = creeperY - 1; } } } }
+        if ((diamondX = creeperX) & (diamondY = creeperY)) {
+            do newDiamond();   // the creeper stepped on it: make another
+        }
+        do drawCreeper();
+        return;
+    }
+
+    method void newDiamond() {
+        let diamondX = Random.below(32);
+        let diamondY = Random.below(14);
+        do drawDiamond();
+        return;
+    }
+
+    method void drawPlayer(boolean show) {
+        do Screen.setColor(show);
+        do Screen.drawRectangle((playerX * 16) + 2, (playerY * 16) + 2,
+                                (playerX * 16) + 13, (playerY * 16) + 13);
+        do Screen.setColor(true);
+        return;
+    }
+
+    method void drawCreeper() {
+        var int x, y;
+        let x = creeperX * 16;
+        let y = creeperY * 16;
+        do Screen.setColor(true);
+        do Screen.drawRectangle(x + 1, y + 1, x + 14, y + 14);
+        do Screen.setColor(false);
+        do Screen.drawRectangle(x + 3, y + 4, x + 5, y + 6);     // eyes
+        do Screen.drawRectangle(x + 10, y + 4, x + 12, y + 6);
+        do Screen.drawRectangle(x + 6, y + 8, x + 9, y + 12);    // mouth
+        do Screen.setColor(true);
+        return;
+    }
+
+    method void drawDiamond() {
+        var int x, y;
+        let x = (diamondX * 16) + 8;
+        let y = (diamondY * 16) + 8;
+        do Screen.drawLine(x, y - 6, x + 6, y);
+        do Screen.drawLine(x + 6, y, x, y + 6);
+        do Screen.drawLine(x, y + 6, x - 6, y);
+        do Screen.drawLine(x - 6, y, x, y - 6);
+        return;
+    }
+
+    method void showScore() {
+        do Output.moveCursor(21, 0);
+        do Output.printString("Diamonds: ");
+        do Output.printInt(score);
+        return;
+    }
+
+    function void clear(int col, int row) {
+        do Screen.setColor(false);
+        do Screen.drawRectangle(col * 16, row * 16, (col * 16) + 15, (row * 16) + 15);
+        do Screen.setColor(true);
+        return;
+    }
+}

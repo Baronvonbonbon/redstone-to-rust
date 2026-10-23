@@ -82,6 +82,7 @@ The lessons tell you when to run these:
 ./scripts/give-lab.sh sam sql       # Lesson 5.14 (a database file, so there's no answer)
 ./scripts/give-lab.sh sam n2t       # Lesson 6.1 (Nand to Tetris projects, so there's no answer)
 ./scripts/give-lab.sh sam algo      # Lesson 7.1 (a checker and mazes; your answers are in labs/algo/answers)
+./scripts/give-lab.sh sam stack     # Lesson 8.6 (Stage 8 test scripts and an example game, so there's no answer)
 ```
 
 The cave and the heist print the answer for you. Don't let the learner see it!
@@ -135,6 +136,20 @@ Nothing new to install: Stage 7 is Python, Thonny and the turtle, from
 Stages 2 and 3. Before Lesson 7.1, run `./scripts/give-lab.sh sam algo`.
 The [Algorithms lab handbook](../labs/algo/README.md) explains the
 checker.
+
+## Later: C and the software stack (Stage 8)
+
+While online, from your own account, install the C tools (`gcc`, `gdb`,
+`valgrind` and the C manual pages):
+
+```bash
+./scripts/install-packages.sh --later
+```
+
+Before Lesson 8.6, run `./scripts/give-lab.sh sam stack`. The rest of
+Stage 8 uses the Nand to Tetris tools from Stage 6. The
+[Nand to Tetris handbook](../labs/n2t/README.md) has a section on
+Stage 8.
 
 ## Later: Rust (Stage 9)
 

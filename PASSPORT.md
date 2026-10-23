@@ -39,8 +39,13 @@ Shade in a level each time you beat it!
 Tick each project when every one of its tests passes!
 
 ```
-12 [ ] Tetris! (an operating system)          Stage 8
- 7 to 11 [ ] VM, compiler, language           Stage 8
+Top [ ] My game on my whole stack!          Stage 8
+12 [ ] My operating system                    Stage 8
+11 [ ] My compiler: VM code                   Stage 8
+10 [ ] My compiler: the parser                Stage 8
+ 9 [ ] My Jack game                           Stage 8
+ 8 [ ] My VM translator: functions            Stage 8
+ 7 [ ] My VM translator: the stack            Stage 8
  6 [ ] My assembler (and Pong!)               Stage 6
  5 [ ] The CPU and the Computer               Stage 6
  4 [ ] Mult and Fill                          Stage 6

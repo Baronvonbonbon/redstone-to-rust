@@ -1,0 +1,26 @@
+#!/bin/bash
+# check-jack: compiles a test folder with YOUR compiler, runs it in the
+# VM Emulator, and compares the answers it leaves in the RAM.
+#   check-jack ~/lab/n2t/stack/tests/1-Sums
+tools=/srv/redstone-library/tools/nand2tetris/tools
+compiler=~/lab/n2t/projects/11/compiler.py
+folder=$(realpath "${1:?which test folder?}")
+tmp=$(mktemp -d /tmp/checkjackXXXXXX)    # no dot in the name, for the tools
+cp "$folder"/* "$tmp/"
+rm -f "$tmp"/*.vm
+python3 "$compiler" "$tmp" || { echo "NOT YET: your compiler crashed (above)."; exit 1; }
+for os in "$tools"/OS/*.vm; do              # the OS, as VM code
+    [[ -e "$tmp/$(basename "$os")" ]] || cp "$os" "$tmp/"
+done
+test=$(basename "$tmp"/*.tst)
+result=$("$tools/VMEmulator.sh" "$tmp/$test" 2>&1 | tail -1)
+if [[ "$result" == *successfully* ]]; then
+    echo "ALL GOOD! Every answer matches."
+elif [[ "$result" == *"Comparison failure"* ]]; then
+    echo "NOT YET. Some answers are wrong. Yours, then the right ones (RAM[8000] first):"
+    tail -1 "$tmp/${test%.tst}.out"
+    tail -1 "$tmp/${test%.tst}.cmp"
+else
+    echo "NOT YET. The program stopped with an error before it finished:"
+    echo "    $result"
+fi

@@ -1,0 +1,10 @@
+// Diamond Dash: collect diamonds, and don't let the creeper catch you.
+class Main {
+    function void main() {
+        var DashGame game;
+        let game = DashGame.new();
+        do game.run();
+        do game.dispose();
+        return;
+    }
+}
