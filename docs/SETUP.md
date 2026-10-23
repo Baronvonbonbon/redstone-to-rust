@@ -81,6 +81,7 @@ The lessons tell you when to run these:
 ./scripts/give-lab.sh sam redstone  # Lesson 4.7 (a Luanti world, so there's no answer)
 ./scripts/give-lab.sh sam sql       # Lesson 5.14 (a database file, so there's no answer)
 ./scripts/give-lab.sh sam n2t       # Lesson 6.1 (Nand to Tetris projects, so there's no answer)
+./scripts/give-lab.sh sam algo      # Lesson 7.1 (a checker and mazes; your answers are in labs/algo/answers)
 ```
 
 The cave and the heist print the answer for you. Don't let the learner see it!
@@ -127,6 +128,13 @@ library (`mirror-library.sh`), and they use the Java installed in step
 `./scripts/give-lab.sh sam n2t`. The
 [Nand to Tetris handbook](../labs/n2t/README.md) has the details, and
 what to do if the download fails.
+
+## Later: Algorithms (Stage 7)
+
+Nothing new to install: Stage 7 is Python, Thonny and the turtle, from
+Stages 2 and 3. Before Lesson 7.1, run `./scripts/give-lab.sh sam algo`.
+The [Algorithms lab handbook](../labs/algo/README.md) explains the
+checker.
 
 ## Later: Rust (Stage 9)
 

@@ -60,8 +60,9 @@ account of their own.
 | *Code*, Charles Petzold | 4–6 | **optional purchase**; great bedtime reading | (c) |
 | OpenStax *Introduction to Computer Science* | 7 | hand (PDF) | CC BY |
 | *Book of Proof*, Richard Hammack | 7 | lib (PDF) | Creative Commons |
-| *Open Data Structures*, Pat Morin | 7 | web (PDF free) | CC BY |
-| *Algorithms*, Jeff Erickson | 7+ | web (PDF free) | CC BY |
+| *Open Data Structures* (Python edition), Pat Morin | 7 | lib (PDF) | CC BY |
+| *Algorithms*, Jeff Erickson | 7+ | lib (PDF) | CC BY |
+| **Algorithms checker and mazes** (this repo) | 7 | built in (`labs/algo`) | MIT |
 | *Beej's Guide to C Programming* | 8 | web (PDF free) | CC BY-NC-ND |
 | *The Rust Programming Language* | 9 | `rustup doc --book` | MIT/Apache |
 | *Rust by Example* | 9 | `rustup doc --rust-by-example` | MIT/Apache |

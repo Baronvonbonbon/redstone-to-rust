@@ -54,6 +54,8 @@ echo "Books (PDFs)..."
 fetch https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download books/the-linux-command-line.pdf
 fetch https://greenteapress.com/thinkpython2/thinkpython2.pdf books/think-python-2e.pdf
 fetch https://richardhammack.github.io/BookOfProof/Main.pdf  books/book-of-proof.pdf
+fetch https://opendatastructures.org/ods-python.pdf  books/open-data-structures-python.pdf
+fetch https://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-JeffE.pdf  books/algorithms-erickson.pdf
 fetch https://courses.csail.mit.edu/6.042/spring18/mcs.pdf  books/mathematics-for-computer-science.pdf
 
 echo "Books and courses (source repos)..."

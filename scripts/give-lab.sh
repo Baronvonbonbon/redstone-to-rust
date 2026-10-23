@@ -8,11 +8,12 @@
 #   ./scripts/give-lab.sh LEARNER redstone # Lesson 4.7: a flat creative Luanti world with Mesecons
 #   ./scripts/give-lab.sh LEARNER sql      # Lesson 5.14: the Minecraft database (a file, no answers)
 #   ./scripts/give-lab.sh LEARNER n2t      # Lesson 6.1: Nand to Tetris projects + practice chips (no answers)
+#   ./scripts/give-lab.sh LEARNER algo     # Lesson 7.1: the Stage 7 checker and mazes (answers stay in labs/algo/answers)
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t}
-lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t}
+name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo}
+lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo}
 home=$(getent passwd "$name" | cut -d: -f6)
 [[ -n "$home" ]] || { echo "No account called $name"; exit 1; }
 
@@ -23,7 +24,8 @@ case "$lab" in
   redstone) dest="$home/.minetest/worlds/redstone-lab"; script= ;;
   sql)   dest="$home/lab/sql"; script= ;;
   n2t)   dest="$home/lab/n2t"; script= ;;
-  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone, sql or n2t)"; exit 1 ;;
+  algo)  dest="$home/lab/algo"; script= ;;
+  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone, sql, n2t or algo)"; exit 1 ;;
 esac
 
 if sudo test -e "$dest"; then
@@ -46,6 +48,10 @@ elif [[ "$lab" == n2t ]]; then
   sudo mkdir -p "$dest"
   sudo cp -r "$n2t/projects" "$dest/projects"
   sudo cp -r labs/n2t/practice "$dest/practice"
+elif [[ "$lab" == algo ]]; then
+  sudo mkdir -p "$dest"
+  sudo cp labs/algo/check.py "$dest/"
+  sudo cp -r labs/algo/mazes "$dest/mazes"
 else
   # A new world: flat, no trees or caves, creative, no damage, every Mesecons mod on.
   # Luanti builds the land the first time it's played.

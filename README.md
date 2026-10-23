@@ -70,6 +70,7 @@ in Minecraft, and Rust is the systems language the course ends up in.
 | `labs/sandbox/` | **The Sandbox:** a breakable Linux computer in Docker where the learner is the admin (Stage 5) |
 | `labs/sql/` | A Minecraft mob database for learning SQL (Stage 5) |
 | `labs/n2t/` | Nand to Tetris extras: HDL and Hack reference cards, practice chips and programs (Stage 6) |
+| `labs/algo/` | The Stage 7 checker, practice mazes, and answers for the guide |
 | `scripts/` | Install packages, create the learner's account, download the offline library |
 | `PASSPORT.md` | The learner's printable progress passport |
 
@@ -77,8 +78,8 @@ in Minecraft, and Rust is the systems language the course ends up in.
 
 | Stages | State |
 |---|---|
-| 0–6 | Fully scripted lessons, with tested labs and programs |
-| 7–13 | Outlined in [docs/SYLLABUS.md](docs/SYLLABUS.md); stage folders not written yet |
+| 0–7 | Fully scripted lessons, with tested labs and programs |
+| 8–13 | Outlined in [docs/SYLLABUS.md](docs/SYLLABUS.md); stage folders not written yet |
 
 Contributions are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
 
