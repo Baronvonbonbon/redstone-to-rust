@@ -83,6 +83,7 @@ The lessons tell you when to run these:
 ./scripts/give-lab.sh sam n2t       # Lesson 6.1 (Nand to Tetris projects, so there's no answer)
 ./scripts/give-lab.sh sam algo      # Lesson 7.1 (a checker and mazes; your answers are in labs/algo/answers)
 ./scripts/give-lab.sh sam stack     # Lesson 8.6 (Stage 8 test scripts and an example game, so there's no answer)
+./scripts/give-lab.sh sam rust      # Lesson 9.1 (Rust's setup script, crate kit and check-hack; no answer)
 ```
 
 The cave and the heist print the answer for you. Don't let the learner see it!
@@ -153,19 +154,26 @@ Stage 8.
 
 ## Later: Rust (Stage 9)
 
-Rust is installed *in the learner's account* (it doesn't need admin),
-while online:
+Rust is installed *in the learner's account* (it doesn't need admin).
+Before Lesson 9.1, from your own account:
 
 ```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-rustup component add rust-docs rust-src
-cargo install rustlings
+./scripts/give-lab.sh sam rust
 ```
 
-After that, `rustup doc --book` opens *The Rust Programming Language*
-offline. Rust projects that use outside libraries ("crates") need them
-downloaded once while online (`cargo fetch` inside the project). Stage 9
-tells you when.
+Then, **as the learner, while online**:
+
+```bash
+bash ~/lab/rust/setup-rust.sh
+```
+
+It installs Rust with rustup (the official installer, no account), the
+offline Rust books, Rustlings, and the six outside libraries ("crates")
+that Stage 9 uses, then switches Cargo to offline mode. It takes 5 to
+15 minutes and about 2 GB of the learner's disk. After that, `rustup doc
+--book` opens *The Rust Programming Language* offline, and all of Stage
+9 works with no internet. The [Rust lab handbook](../labs/rust/README.md)
+explains how to fetch another crate later, if you ever need one.
 
 ## Checklist
 

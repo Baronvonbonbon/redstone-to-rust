@@ -10,11 +10,12 @@
 #   ./scripts/give-lab.sh LEARNER n2t      # Lesson 6.1: Nand to Tetris projects + practice chips (no answers)
 #   ./scripts/give-lab.sh LEARNER algo     # Lesson 7.1: the Stage 7 checker and mazes (answers stay in labs/algo/answers)
 #   ./scripts/give-lab.sh LEARNER stack    # Lesson 8.6: Stage 8 check scripts, compiler tests, Diamond Dash (no answers)
+#   ./scripts/give-lab.sh LEARNER rust     # Lesson 9.1: setup-rust.sh, the crate kit and check-hack (no answers)
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack}
-lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack}
+name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust}
+lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust}
 home=$(getent passwd "$name" | cut -d: -f6)
 [[ -n "$home" ]] || { echo "No account called $name"; exit 1; }
 
@@ -27,8 +28,23 @@ case "$lab" in
   n2t)   dest="$home/lab/n2t"; script= ;;
   algo)  dest="$home/lab/algo"; script= ;;
   stack) dest="$home/lab/n2t/stack"; script= ;;
-  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone, sql, n2t, algo or stack)"; exit 1 ;;
+  rust)  dest="$home/lab/rust"; script= ;;
+  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone, sql, n2t, algo, stack or rust)"; exit 1 ;;
 esac
+
+if [[ "$lab" == rust ]]; then
+  # ~/lab/rust holds the learner's own Rust projects too, so never replace the
+  # whole folder: only refresh this lab's three things.
+  sudo mkdir -p "$dest"
+  sudo rm -rf "$dest/crate-kit"
+  sudo cp -r labs/rust/crate-kit "$dest/crate-kit"
+  sudo cp labs/rust/setup-rust.sh labs/rust/check-hack "$dest/"
+  sudo chmod +x "$dest/setup-rust.sh" "$dest/check-hack"
+  sudo chown -R "$name:" "$dest/crate-kit" "$dest/setup-rust.sh" "$dest/check-hack"
+  for d in "$home/lab" "$dest"; do sudo chown "$name:" "$d"; done
+  echo "Done. Next, as $name and online: bash ~/lab/rust/setup-rust.sh"
+  exit 0
+fi
 
 if sudo test -e "$dest"; then
   read -rp "$dest already exists. Replace it with a new one? [y/N] " ok

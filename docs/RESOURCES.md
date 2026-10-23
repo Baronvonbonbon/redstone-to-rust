@@ -31,7 +31,7 @@ by hand once. **web** = needs the internet each time.
 | Learn Git Branching | 5 (optional) | Git branches, visually | web (learngitbranching.js.org, no account) | MIT |
 | Command Line Murder Mystery | 5 (optional) | grep practice; **murder theme, so preview it** | lib | free |
 | SQL Murder Mystery | 5 (optional) | SQL; **murder theme, so preview it** | lib | MIT |
-| Rustlings | 9 | Small Rust exercises in the terminal | cargo (online once) | MIT |
+| Rustlings | 9 | Small Rust exercises in the terminal | `setup-rust.sh` (online once) | MIT |
 | Project Euler | 3, 7 | Math programming problems | web to read, no account | CC BY-NC-SA |
 | OWASP Juice Shop | 11 | A deliberately hackable web shop, run locally | Docker (online once) | MIT |
 | OverTheWire (Bandit, Natas, Krypton, Narnia...) | 11 *(optional)* | Real online wargames, shared public logins, **no personal account** | web | free |
@@ -69,6 +69,8 @@ account of their own.
 | *Rust by Example* | 9 | `rustup doc --rust-by-example` | MIT/Apache |
 | *Comprehensive Rust* (Google) | 9 | lib | Apache |
 | *Rust Cookbook* | 9 | lib | CC0 |
+| Crate kit: rand, regex, lazy_static, serde, serde_json, crossterm | 9 | `setup-rust.sh` (online once) | MIT / MIT-Apache |
+| **Rust lab: setup script, check-hack, Creeper Chase** (this repo) | 9 | built in (`labs/rust`) | MIT |
 | *Operating Systems: Three Easy Pieces* (OSTEP) | 10 | hand (free chapter PDFs) | free to read |
 | *Writing an OS in Rust*, Philipp Oppermann | 10 | lib | free to read; code MIT/Apache |
 | xv6 (MIT teaching OS) | 10 *(optional)* | lib | MIT |

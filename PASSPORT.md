@@ -47,12 +47,27 @@ Top [ ] My game on my whole stack!          Stage 8
  8 [ ] My VM translator: functions            Stage 8
  7 [ ] My VM translator: the stack            Stage 8
  6 [ ] My assembler (and Pong!)               Stage 6
+     [ ] ...and again, in Rust                Stage 9
  5 [ ] The CPU and the Computer               Stage 6
  4 [ ] Mult and Fill                          Stage 6
  3 [ ] Memory and the program counter         Stage 6
  2 [ ] Adders and the ALU                     Stage 6
  1 [ ] Fifteen gates                          Stage 6
  0 [x] NAND (the only thing you're given)
+```
+
+## Rustlings
+
+Tick each group when all its exercises pass!
+
+```
+[ ] intro       [ ] variables    [ ] functions    [ ] if
+[ ] primitives  [ ] vecs         [ ] moves        [ ] structs
+[ ] enums       [ ] strings      [ ] modules      [ ] hashmaps
+[ ] options     [ ] errors       [ ] generics     [ ] traits
+[ ] lifetimes   [ ] tests        [ ] iterators    [ ] smart pointers
+[ ] threads     [ ] macros       [ ] clippy       [ ] conversions
+[ ] quiz 1      [ ] quiz 2       [ ] quiz 3       [ ] ALL DONE!
 ```
 
 ## Things I built that I'm proud of

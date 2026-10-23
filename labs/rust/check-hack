@@ -1,0 +1,21 @@
+#!/bin/bash
+# check-hack: compares my Rust assembler's .hack file with the real assembler's.
+#   check-hack ~/lab/n2t/projects/6/add/Add.asm
+tools=/srv/redstone-library/tools/nand2tetris/tools
+[[ -f "${1:?which .asm file?}" ]] || { echo "check-hack: there's no file called $1"; exit 1; }
+asm=$(realpath "$1")
+tmp=$(mktemp -d /tmp/checkhackXXXXXX)   # no dot in the name: the real assembler needs that
+trap 'rm -rf "$tmp"' EXIT
+cp "$asm" "$tmp/"
+"$tools/Assembler.sh" "$tmp/$(basename "$asm")" > /dev/null
+mine="${asm%.asm}.hack"
+real="$tmp/$(basename "$mine")"
+rm -f "$mine"
+(cd ~/lab/rust/hack-asm && cargo run -q --release -- "$asm") || { echo "NOT YET: the assembler stopped (above)."; exit 1; }
+[[ -f "$mine" ]] || { echo "NOT YET: no $(basename "$mine") was made."; exit 1; }
+if diff -q "$mine" "$real" > /dev/null; then
+    echo "SAME: all $(wc -l < "$real") instructions match."
+else
+    echo "DIFFERENT. Line numbers are instruction numbers + 1. Mine <, real >:"
+    diff "$mine" "$real" | head -12
+fi
