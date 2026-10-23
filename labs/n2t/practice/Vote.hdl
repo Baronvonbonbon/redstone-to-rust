@@ -1,0 +1,13 @@
+// Practice chip for Lesson 6.1 (Redstone to Rust; not a Nand to Tetris project).
+/**
+ * The voting machine from Lesson 4.14: out is 1 when at least two of
+ * the three votes are 1.
+ * out = (a and b) or (a and c) or (b and c)
+ */
+CHIP Vote {
+    IN a, b, c;
+    OUT out;
+
+    PARTS:
+    // Your parts go here.
+}

@@ -34,6 +34,22 @@ Shade in a level each time you beat it!
                          20 [ ]  THE BOTTOM!
 ```
 
+## The Nand to Tetris climb
+
+Tick each project when every one of its tests passes!
+
+```
+12 [ ] Tetris! (an operating system)          Stage 8
+ 7 to 11 [ ] VM, compiler, language           Stage 8
+ 6 [ ] My assembler (and Pong!)               Stage 6
+ 5 [ ] The CPU and the Computer               Stage 6
+ 4 [ ] Mult and Fill                          Stage 6
+ 3 [ ] Memory and the program counter         Stage 6
+ 2 [ ] Adders and the ALU                     Stage 6
+ 1 [ ] Fifteen gates                          Stage 6
+ 0 [x] NAND (the only thing you're given)
+```
+
 ## Things I built that I'm proud of
 
 1.

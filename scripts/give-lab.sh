@@ -7,11 +7,12 @@
 #   ./scripts/give-lab.sh LEARNER sprites # Lesson 3.13: Sprite Maker (a tool, no answers)
 #   ./scripts/give-lab.sh LEARNER redstone # Lesson 4.7: a flat creative Luanti world with Mesecons
 #   ./scripts/give-lab.sh LEARNER sql      # Lesson 5.14: the Minecraft database (a file, no answers)
+#   ./scripts/give-lab.sh LEARNER n2t      # Lesson 6.1: Nand to Tetris projects + practice chips (no answers)
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql}
-lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql}
+name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t}
+lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t}
 home=$(getent passwd "$name" | cut -d: -f6)
 [[ -n "$home" ]] || { echo "No account called $name"; exit 1; }
 
@@ -21,7 +22,8 @@ case "$lab" in
   sprites) dest="$home/lab/sprite-maker"; script= ;;
   redstone) dest="$home/.minetest/worlds/redstone-lab"; script= ;;
   sql)   dest="$home/lab/sql"; script= ;;
-  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone or sql)"; exit 1 ;;
+  n2t)   dest="$home/lab/n2t"; script= ;;
+  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone, sql or n2t)"; exit 1 ;;
 esac
 
 if sudo test -e "$dest"; then
@@ -37,6 +39,13 @@ elif [[ "$lab" == sprites ]]; then
 elif [[ "$lab" == sql ]]; then
   sudo mkdir -p "$dest"
   sudo cp labs/sql/minecraft.sql "$dest/"
+elif [[ "$lab" == n2t ]]; then
+  # The project files come from the Nand to Tetris download in the offline library.
+  n2t=${N2T:-/srv/redstone-library/tools/nand2tetris}
+  [[ -d "$n2t/projects" ]] || { echo "No $n2t/projects. Run ./scripts/mirror-library.sh first."; exit 1; }
+  sudo mkdir -p "$dest"
+  sudo cp -r "$n2t/projects" "$dest/projects"
+  sudo cp -r labs/n2t/practice "$dest/practice"
 else
   # A new world: flat, no trees or caves, creative, no damage, every Mesecons mod on.
   # Luanti builds the land the first time it's played.

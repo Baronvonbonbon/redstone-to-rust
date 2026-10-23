@@ -6,8 +6,8 @@
 #   ./scripts/mirror-library.sh [/srv/redstone-library]
 #
 # Safe to re-run: existing downloads are skipped and git repos are updated.
-# Some things can't be fetched by a script (OpenStax PDFs, the Nand to Tetris
-# software zip); those are listed at the end for you to download by hand.
+# Some things can't be fetched by a script (OpenStax PDFs, for example);
+# those are listed at the end for you to download by hand.
 set -uo pipefail
 
 LIB=${1:-/srv/redstone-library}
@@ -35,6 +35,20 @@ echo "Tools (Stages 4, 6)..."
 fetch https://github.com/hneemann/Digital/releases/download/v0.31/Digital.zip  tools/Digital.zip
 fetch https://github.com/hneemann/Digital/releases/download/v0.31/Doc_English.pdf tools/Digital-manual.pdf
 [[ -d "$LIB/tools/Digital" ]] || (cd "$LIB/tools" && unzip -q Digital.zip) || failed+=("unzip Digital.zip")
+
+echo "Nand to Tetris software suite (Stages 6, 8)..."
+# The desktop version (2.7), from the Google Drive link on nand2tetris.org/software.
+N2T_ZIP="https://drive.usercontent.google.com/download?id=1xZzcMIUETv3u3sdpM_oTJSTetpVee3KZ&export=download&confirm=t"
+if [[ ! -x "$LIB/tools/nand2tetris/tools/HardwareSimulator.sh" ]]; then
+  fetch "$N2T_ZIP" tools/nand2tetris.zip
+  if unzip -tq "$LIB/tools/nand2tetris.zip" >/dev/null 2>&1; then
+    # The zip's scripts aren't marked as programs, so mark them.
+    (cd "$LIB/tools" && unzip -qo nand2tetris.zip -x '__MACOSX/*' && chmod +x nand2tetris/tools/*.sh) \
+      || failed+=("unzip nand2tetris.zip")
+  else
+    rm -f "$LIB/tools/nand2tetris.zip"; failed+=("Nand to Tetris zip (see the hand download list)")
+  fi
+fi
 
 echo "Books (PDFs)..."
 fetch https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download books/the-linux-command-line.pdf
@@ -64,7 +78,9 @@ Download these by hand (open the page, use its Download/PDF button) into $LIB/bo
   - OpenStax Introduction to Computer Science     openstax.org/details/books/introduction-computer-science
   - OpenStax math books for the math track        see docs/MATH-TRACK.md
   - Invent Your Own Computer Games with Python    inventwithpython.com/invent4thed/  (free to read online)
-  - Nand to Tetris software suite (Stage 6)       nand2tetris.org/software  -> $LIB/tools/
+  - Only if the Nand to Tetris download failed:   nand2tetris.org/software, "Software package" (desktop
+    version). Unzip it in $LIB/tools/ so that $LIB/tools/nand2tetris/tools/ exists, then run
+    chmod +x $LIB/tools/nand2tetris/tools/*.sh
   - OSTEP chapters (Stage 10)                     pages.cs.wisc.edu/~remzi/OSTEP/
 
 The Rust books come with Rust itself: in Stage 9, 'rustup doc' opens them offline.

@@ -1,0 +1,13 @@
+// Practice chip for Lesson 6.1 (Redstone to Rust; not a Nand to Tetris project).
+/**
+ * The creeper alarm rings when a creeper is near AND it's night,
+ * AND NOT while you're inside.
+ * alarm = creeper and night and not(inside)
+ */
+CHIP CreeperAlarm {
+    IN creeper, night, inside;
+    OUT alarm;
+
+    PARTS:
+    // Your parts go here.
+}

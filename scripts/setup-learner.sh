@@ -24,4 +24,4 @@ done
 sudo -u "$name" mkdir -p "/home/$name/lab"
 echo
 echo "Account '$name' is ready. Log out and log in as $name to check it works."
-echo "Labs go in place with:  ./scripts/give-lab.sh $name cave|heist|sprites|redstone|sql"
+echo "Labs go in place with:  ./scripts/give-lab.sh $name cave|heist|sprites|redstone|sql|n2t"

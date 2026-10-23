@@ -1,0 +1,11 @@
+// Practice chip for the Stage 6 checkpoint (Redstone to Rust; not a Nand to Tetris project).
+/**
+ * out is 1 when a and b are the same (both 0, or both 1).
+ */
+CHIP Same {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    // Your parts go here.
+}

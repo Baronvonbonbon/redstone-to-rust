@@ -23,12 +23,12 @@ cd redstone-to-rust
 ./scripts/install-packages.sh
 ```
 
-This installs everything for Stages 0 to 5: typing tutors, GCompris,
+This installs everything for Stages 0 to 7: typing tutors, GCompris,
 terminal toys, Python with Thonny and Pygame Zero, Luanti with the
 Mesecons circuits mod, git, Docker and GNOME Boxes. **Log out and back
 in afterwards**, so your account can use Docker.
 
-Run it again with `--later` when you reach Stage 6.
+Run it again with `--later` when you reach Stage 8.
 
 ## 3. Make the learner's account
 
@@ -80,6 +80,7 @@ The lessons tell you when to run these:
 ./scripts/give-lab.sh sam sprites   # Lesson 3.13 (a tool, so there's no answer)
 ./scripts/give-lab.sh sam redstone  # Lesson 4.7 (a Luanti world, so there's no answer)
 ./scripts/give-lab.sh sam sql       # Lesson 5.14 (a database file, so there's no answer)
+./scripts/give-lab.sh sam n2t       # Lesson 6.1 (Nand to Tetris projects, so there's no answer)
 ```
 
 The cave and the heist print the answer for you. Don't let the learner see it!
@@ -117,6 +118,15 @@ everything" is one click.
 
 The [Sandbox handbook](../labs/sandbox/README.md) says how to adapt the
 lessons for a Pi or a VM.
+
+## Later: Nand to Tetris (Stage 6)
+
+Nothing new to install: the Nand to Tetris tools come with the offline
+library (`mirror-library.sh`), and they use the Java installed in step
+2. Before Lesson 6.1, give the learner the project files with
+`./scripts/give-lab.sh sam n2t`. The
+[Nand to Tetris handbook](../labs/n2t/README.md) has the details, and
+what to do if the download fails.
 
 ## Later: Rust (Stage 9)
 

@@ -54,7 +54,9 @@ account of their own.
 | CS Unplugged (activity ideas) | 0 | web | CC BY-NC-SA |
 | *The Missing Semester of Your CS Education* (MIT) | 5 | lib | CC BY-NC-SA |
 | *The Elements of Computing Systems* (Nand to Tetris book) | 6, 8 | **optional purchase**; free project specs at nand2tetris.org | book: (c) MIT Press |
-| Nand to Tetris software suite | 6, 8 | hand | GPL |
+| Nand to Tetris software suite (desktop, 2.7) | 6, 8 | lib (automatic; hand if it fails) | GPL |
+| Nand to Tetris web IDE | 6, 8 (optional) | web (nand2tetris.github.io/web-ide, no account) | MIT |
+| **HDL card, Hack card, practice chips** (this repo) | 6 | built in (`labs/n2t`) | CC BY-SA / MIT |
 | *Code*, Charles Petzold | 4–6 | **optional purchase**; great bedtime reading | (c) |
 | OpenStax *Introduction to Computer Science* | 7 | hand (PDF) | CC BY |
 | *Book of Proof*, Richard Hammack | 7 | lib (PDF) | Creative Commons |
