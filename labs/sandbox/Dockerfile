@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends unminimize \
     && apt-get install -y --no-install-recommends \
         openssh-server sudo man-db manpages nano vim less tree file htop \
         procps psmisc iproute2 netcat-openbsd git python3 sqlite3 bash-completion \
+        iputils-ping iputils-tracepath dnsutils tcpdump curl ufw openssl \
     && ssh-keygen -A && mkdir -p /run/sshd
 
 # Packages for Lesson 5.3 are downloaded but NOT installed, so that

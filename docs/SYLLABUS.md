@@ -56,11 +56,12 @@ redstone-style mod (Stage 4). A maze solver for a block world (Stage 7).
 **The Mineshaft thread.** Levels 0–9 in Stage 1, levels 10–19 in Stage 5,
 and in Stage 8 the learner writes small command-line tools of their own in
 C, like the ones they used down the Mineshaft. In Stage 11 they design
-levels for someone else.
+a puzzle trail for someone else.
 
 **The "build it again" thread.** The Nand to Tetris assembler is written
-in Python (Stage 6) and rewritten in Rust (Stage 9). The vault-cracker
-from Mineshaft level 19 comes back as a network client (Stage 11).
+in Python (Stage 6) and rewritten in Rust (Stage 9). The `nc`
+conversations of Stage 5 come back as the learner's own servers and
+clients in Rust (Stage 11).
 Rewriting something you already understand in a new language is the
 fastest way to learn that language.
 

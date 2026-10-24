@@ -26,7 +26,7 @@ LATER=(
   # Stage 10: OS
   strace ltrace qemu-system-x86 qemu-utils libarchive-tools
   # Stage 11: networking
-  tcpdump wireshark dnsutils traceroute nmap
+  dnsutils iputils-tracepath curl openssl
   # Stage 12: Scheme
   mit-scheme
 )

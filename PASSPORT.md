@@ -86,6 +86,26 @@ Tick each one when it works!
 [ ] Creeper Chase on my own OS!                 10.14
 ```
 
+## Net Ninja
+
+Tick each one when it works!
+
+```
+[ ] I pinged the Sandbox, and it pinged me back  11.1
+[ ] I watched my own handshake with tcpdump      11.4
+[ ] My Rust server talked to my Rust client      11.5
+[ ] The Diamond Vault survived sneaky visitors   11.6
+[ ] My web page, from my own web server          11.7
+[ ] I cracked all three secret messages          11.9
+[ ] A fingerprint caught a sneaky change         11.10
+[ ] I rolled a dice passphrase                   11.11
+[ ] Two keys, one secret                         11.12
+[ ] I logged in with my own key                  11.13
+[ ] I fixed two bugs in my own programs          11.14
+[ ] My firewall (and I got back in!)             11.15
+[ ] Someone played my puzzle trail               11.16
+```
+
 ## Things I built that I'm proud of
 
 1.

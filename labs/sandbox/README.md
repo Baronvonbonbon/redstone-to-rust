@@ -50,6 +50,16 @@ Lesson 5.3 breaks it on purpose so the learner sees that.
 | 5.3 | Installing packages; breaking things and fixing them; a reset |
 | 5.11 | Challenge: pushing a git repository to the Sandbox over `ssh` |
 | 5.16 | The Stage 5 checkpoint |
+| 11.1–11.4 | A second computer on the network: `ping`, routes, `/etc/hosts`, `nc` chats, and watching its own packets with `tcpdump` |
+| 11.13 | Logging in with a key instead of a password |
+| 11.15 | Open ports and a firewall (`ufw`) |
+
+**Stage 11 needs the Sandbox rebuilt**, because it adds network tools
+(`ping`, `tracepath`, `dig`, `tcpdump`, `curl`, `ufw`, `openssl`) and
+starts the container with permission to run a firewall. Online, from
+`labs/sandbox`: `./sandbox.sh build LEARNER`, then `./sandbox.sh reset`
+(the password goes back to the learner's name), then
+`ssh-keygen -R '[localhost]:2222'` in the learner's account.
 
 Scripts, git and the other lessons happen on the family computer, in
 the learner's own account. Work kept in the Sandbox doesn't survive a
@@ -93,6 +103,9 @@ reset, so anything worth keeping lives on the family computer.
 - `Dockerfile` starts from Ubuntu 24.04, puts the manual pages back with
   `unminimize` (the Docker image leaves them out), installs the tools and
   an `ssh` server, and makes the learner's account.
+- `sandbox.sh start` gives the container the `NET_ADMIN` capability, so
+  the learner's `sudo ufw` can change the Sandbox's own firewall rules
+  (and nothing outside it).
 - To make `apt` work offline, it downloads the four packages into apt's
   cache, removes Docker's rule that empties that cache, and tells apt to
   keep downloaded files, so reinstalling works offline too.

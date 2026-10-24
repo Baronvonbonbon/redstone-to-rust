@@ -19,7 +19,8 @@ packet, protocol, layer, IP address, interface, loopback, MAC address,
 
 - [ ] Read this whole lesson once.
 - [ ] The Sandbox must be rebuilt for Stage 11 (once): see the Stage 11
-      README, "Tools". Then `./sandbox.sh start`, from your account.
+      README, "Tools" (`./sandbox.sh build LEARNER`, then `./sandbox.sh
+      reset`, from your account). After that, `./sandbox.sh start`.
 - [ ] Cards and envelopes for the game. Write this message on a sheet of
       paper (or make up your own, eight words long):
       **"THE PRINCIPAL'S UNDERPANTS ARE ON THE FLAGPOLE AGAIN"**.

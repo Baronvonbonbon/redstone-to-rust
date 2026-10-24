@@ -85,6 +85,7 @@ The lessons tell you when to run these:
 ./scripts/give-lab.sh sam stack     # Lesson 8.6 (Stage 8 test scripts and an example game, so there's no answer)
 ./scripts/give-lab.sh sam rust      # Lesson 9.1 (Rust's setup script, crate kit and check-hack; no answer)
 ./scripts/give-lab.sh sam os        # Stage 10 (the OS setup script and the kernel kit; no answer)
+./scripts/give-lab.sh sam net       # Lesson 11.9 (secret messages and a word list; answers in labs/net/README.md)
 ```
 
 The cave and the heist print the answer for you. Don't let the learner see it!
@@ -198,6 +199,24 @@ that its crates are cached. It takes 5 to 10 minutes and about 1 GB.
 Lesson 10.11 also needs the internet: it downloads and installs Arch
 Linux in a virtual machine (about 2.5 GB). The
 [OS lab handbook](../labs/os/README.md) has the details.
+
+## Later: networks and security (Stage 11)
+
+Before Lesson 11.1, from your own account, while online:
+
+```bash
+./scripts/install-packages.sh --later   # dig, tracepath, curl and openssl
+cd labs/sandbox
+./sandbox.sh build sam                  # the Sandbox, with network tools and a firewall
+./sandbox.sh reset                      # start it again from the new image
+```
+
+Then, as the learner: `ssh-keygen -R '[localhost]:2222'` (the rebuilt
+Sandbox has a new identity, and `ssh` would otherwise refuse it with a
+warning). Before Lesson 11.9, run `./scripts/give-lab.sh sam net`. Read
+the [Hacker's Pledge](HACKER-PLEDGE.md) with the learner before Lesson
+11.4. The [net lab handbook](../labs/net/README.md) has the answers and
+the safety notes.
 
 ## Checklist
 

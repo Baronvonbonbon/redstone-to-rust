@@ -33,7 +33,7 @@ by hand once. **web** = needs the internet each time.
 | SQL Murder Mystery | 5 (optional) | SQL; **murder theme, so preview it** | lib | MIT |
 | Rustlings | 9 | Small Rust exercises in the terminal | `setup-rust.sh` (online once) | MIT |
 | Project Euler | 3, 7 | Math programming problems | web to read, no account | CC BY-NC-SA |
-| OWASP Juice Shop | 11 | A deliberately hackable web shop, run locally | Docker (online once) | MIT |
+| OWASP Juice Shop | 11 *(optional, older learner)* | A deliberately hackable web shop, run locally | Docker (online once) | MIT |
 | OverTheWire (Bandit, Natas, Krypton, Narnia...) | 11 *(optional)* | Real online wargames, shared public logins, **no personal account** | web | free |
 
 **Left out on purpose:** picoCTF, pwn.college, Exercism, Advent of Code,
@@ -80,7 +80,11 @@ account of their own.
 | Nightly Rust, `bootimage`, the `bootloader` crate | 10 | `setup-os.sh` (online once) | MIT/Apache |
 | **OS lab: setup script, kernel kit, Shelly, Redstone OS** (this repo) | 10 | built in (`labs/os`) | MIT |
 | *Computer Networks: A Systems Approach* | 11 | lib | CC BY |
-| *Beej's Guide to Network Programming* | 11 | web (PDF free) | CC BY-NC-ND |
+| *Beej's Guide to Network Programming* | 11 *(optional)* | web (PDF free) | CC BY-NC-ND |
+| `dig`, `tracepath`, `curl`, `openssl` | 11 | `install-packages.sh --later` | various free licences |
+| `tcpdump`, `ufw` | 11 | in the Stage 11 Sandbox | BSD / GPL |
+| KeePassXC (password manager, offline) | 11 *(optional, for the guide)* | `sudo apt install keepassxc` | GPL |
+| **Net lab: secret messages, dice word list, example riddle door** (this repo) | 11 | built in (`labs/net`) | MIT |
 | *Crafting Interpreters*, Robert Nystrom | 12 | lib (source); web | CC BY-NC-ND (text) |
 | *Structure and Interpretation of Computer Programs* | 12 | web | CC BY-SA |
 | *Let's Build a Simple Database* (cstack) | 12 | web | free |

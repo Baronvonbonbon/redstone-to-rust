@@ -73,6 +73,7 @@ in Minecraft, and Rust is the systems language the course ends up in.
 | `labs/algo/` | The Stage 7 checker, practice mazes, and answers for the guide |
 | `labs/rust/` | Stage 9's Rust setup script, crate kit, assembler checker, and the Creeper Chase game for the guide |
 | `labs/os/` | Stage 10's setup script and kernel kit, and the finished Shelly shell and Redstone OS kernel for the guide |
+| `labs/net/` | Stage 11's secret messages and dice word list, and an example riddle-door server for the guide |
 | `scripts/` | Install packages, create the learner's account, download the offline library |
 | `PASSPORT.md` | The learner's printable progress passport |
 
@@ -80,8 +81,8 @@ in Minecraft, and Rust is the systems language the course ends up in.
 
 | Stages | State |
 |---|---|
-| 0–10 | Fully scripted lessons, with tested labs and programs |
-| 11–13 | Outlined in [docs/SYLLABUS.md](docs/SYLLABUS.md); stage folders not written yet |
+| 0–11 | Fully scripted lessons, with tested labs and programs |
+| 12–13 | Outlined in [docs/SYLLABUS.md](docs/SYLLABUS.md); stage folders not written yet |
 
 Contributions are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
 

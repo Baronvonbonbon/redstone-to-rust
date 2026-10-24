@@ -12,11 +12,12 @@
 #   ./scripts/give-lab.sh LEARNER stack    # Lesson 8.6: Stage 8 check scripts, compiler tests, Diamond Dash (no answers)
 #   ./scripts/give-lab.sh LEARNER rust     # Lesson 9.1: setup-rust.sh, the crate kit and check-hack (no answers)
 #   ./scripts/give-lab.sh LEARNER os       # Stage 10: setup-os.sh and the kernel kit (no answers)
+#   ./scripts/give-lab.sh LEARNER net      # Stage 11: the secret messages and the dice word list (answers in labs/net/README.md)
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust|os}
-lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust|os}
+name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust|os|net}
+lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust|os|net}
 home=$(getent passwd "$name" | cut -d: -f6)
 [[ -n "$home" ]] || { echo "No account called $name"; exit 1; }
 
@@ -31,7 +32,8 @@ case "$lab" in
   stack) dest="$home/lab/n2t/stack"; script= ;;
   rust)  dest="$home/lab/rust"; script= ;;
   os)    dest="$home/lab/os"; script= ;;
-  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone, sql, n2t, algo, stack, rust or os)"; exit 1 ;;
+  net)   dest="$home/lab/net"; script= ;;
+  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone, sql, n2t, algo, stack, rust, os or net)"; exit 1 ;;
 esac
 
 if [[ "$lab" == rust ]]; then
@@ -59,6 +61,19 @@ if [[ "$lab" == os ]]; then
   sudo chown -R "$name:" "$dest/kernel-kit" "$dest/setup-os.sh"
   for d in "$home/lab" "$dest"; do sudo chown "$name:" "$d"; done
   echo "Done. Next, as $name and online (after setup-rust.sh): bash ~/lab/os/setup-os.sh"
+  exit 0
+fi
+
+if [[ "$lab" == net ]]; then
+  # ~/lab/net holds the learner's own Stage 11 projects, so never replace the
+  # whole folder: only refresh the secret messages and the word list.
+  sudo mkdir -p "$dest"
+  sudo rm -rf "$dest/secrets"
+  sudo cp -r labs/net/secrets "$dest/secrets"
+  sudo cp labs/net/words.txt "$dest/"
+  sudo chown -R "$name:" "$dest/secrets" "$dest/words.txt"
+  for d in "$home/lab" "$dest"; do sudo chown "$name:" "$d"; done
+  echo "Done. The answers to the secret messages are in labs/net/README.md (for you only)."
   exit 0
 fi
 

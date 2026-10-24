@@ -22,8 +22,9 @@ case "${1:-help}" in
   start)   if docker container inspect "$NAME" >/dev/null 2>&1; then
              docker start "$NAME" >/dev/null
            else
+             # NET_ADMIN lets the learner run a firewall inside it (Lesson 11.15).
              docker run -d --name "$NAME" --hostname sandbox --restart unless-stopped \
-               -p "127.0.0.1:$PORT:22" "$NAME" >/dev/null
+               --cap-add NET_ADMIN -p "127.0.0.1:$PORT:22" "$NAME" >/dev/null
            fi
            who=$(learner)
            echo "The Sandbox is on. Learner logs in with:  ssh $who@localhost -p $PORT"
