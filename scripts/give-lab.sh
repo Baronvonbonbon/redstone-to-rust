@@ -11,11 +11,12 @@
 #   ./scripts/give-lab.sh LEARNER algo     # Lesson 7.1: the Stage 7 checker and mazes (answers stay in labs/algo/answers)
 #   ./scripts/give-lab.sh LEARNER stack    # Lesson 8.6: Stage 8 check scripts, compiler tests, Diamond Dash (no answers)
 #   ./scripts/give-lab.sh LEARNER rust     # Lesson 9.1: setup-rust.sh, the crate kit and check-hack (no answers)
+#   ./scripts/give-lab.sh LEARNER os       # Stage 10: setup-os.sh and the kernel kit (no answers)
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust}
-lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust}
+name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust|os}
+lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust|os}
 home=$(getent passwd "$name" | cut -d: -f6)
 [[ -n "$home" ]] || { echo "No account called $name"; exit 1; }
 
@@ -29,7 +30,8 @@ case "$lab" in
   algo)  dest="$home/lab/algo"; script= ;;
   stack) dest="$home/lab/n2t/stack"; script= ;;
   rust)  dest="$home/lab/rust"; script= ;;
-  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone, sql, n2t, algo, stack or rust)"; exit 1 ;;
+  os)    dest="$home/lab/os"; script= ;;
+  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone, sql, n2t, algo, stack, rust or os)"; exit 1 ;;
 esac
 
 if [[ "$lab" == rust ]]; then
@@ -43,6 +45,20 @@ if [[ "$lab" == rust ]]; then
   sudo chown -R "$name:" "$dest/crate-kit" "$dest/setup-rust.sh" "$dest/check-hack"
   for d in "$home/lab" "$dest"; do sudo chown "$name:" "$d"; done
   echo "Done. Next, as $name and online: bash ~/lab/rust/setup-rust.sh"
+  exit 0
+fi
+
+if [[ "$lab" == os ]]; then
+  # ~/lab/os holds the learner's own Stage 10 projects (and the Arch VM),
+  # so never replace the whole folder: only refresh the kit and the script.
+  sudo mkdir -p "$dest"
+  sudo rm -rf "$dest/kernel-kit"
+  sudo cp -r labs/os/kernel-kit "$dest/kernel-kit"
+  sudo cp labs/os/setup-os.sh "$dest/"
+  sudo chmod +x "$dest/setup-os.sh"
+  sudo chown -R "$name:" "$dest/kernel-kit" "$dest/setup-os.sh"
+  for d in "$home/lab" "$dest"; do sudo chown "$name:" "$d"; done
+  echo "Done. Next, as $name and online (after setup-rust.sh): bash ~/lab/os/setup-os.sh"
   exit 0
 fi
 

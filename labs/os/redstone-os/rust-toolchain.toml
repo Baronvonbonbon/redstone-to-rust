@@ -1,0 +1,5 @@
+# Kernels need a few of Rust's experimental features, which only the
+# "nightly" compiler has. This pins the one the course was tested with.
+[toolchain]
+channel = "nightly-2026-10-15"
+components = ["rust-src", "llvm-tools-preview", "rustfmt", "clippy"]

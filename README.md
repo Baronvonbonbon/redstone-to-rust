@@ -22,7 +22,7 @@ learner gets stuck.
  Stage 7  Algorithms & Data        Big-O, sorting, trees, graphs, proofs
  Stage 8  The Software Stack       C, then Nand to Tetris, Part 2 (VM, compiler, OS)
  Stage 9  Rust                     the Rust Book, Rustlings, Rust Cookbook, a terminal game
- Stage 10 Operating Systems        OSTEP, Arch in a VM, writing an OS in Rust
+ Stage 10 Operating Systems        OSTEP, a shell, Arch in a VM, your own kernel in Rust
  Stage 11 Networks & Security      packets, sockets, crypto, ethical hacking
  Stage 12 Languages & Data         Crafting Interpreters, SICP, building a database
  Stage 13 Specialize & Contribute  embedded Rust, Linux From Scratch, open source
@@ -72,6 +72,7 @@ in Minecraft, and Rust is the systems language the course ends up in.
 | `labs/n2t/` | Nand to Tetris extras: HDL, Hack, VM and Jack reference cards, practice chips (Stage 6), and Stage 8's check scripts, compiler tests and the Diamond Dash game |
 | `labs/algo/` | The Stage 7 checker, practice mazes, and answers for the guide |
 | `labs/rust/` | Stage 9's Rust setup script, crate kit, assembler checker, and the Creeper Chase game for the guide |
+| `labs/os/` | Stage 10's setup script and kernel kit, and the finished Shelly shell and Redstone OS kernel for the guide |
 | `scripts/` | Install packages, create the learner's account, download the offline library |
 | `PASSPORT.md` | The learner's printable progress passport |
 
@@ -79,8 +80,8 @@ in Minecraft, and Rust is the systems language the course ends up in.
 
 | Stages | State |
 |---|---|
-| 0–9 | Fully scripted lessons, with tested labs and programs |
-| 10–13 | Outlined in [docs/SYLLABUS.md](docs/SYLLABUS.md); stage folders not written yet |
+| 0–10 | Fully scripted lessons, with tested labs and programs |
+| 11–13 | Outlined in [docs/SYLLABUS.md](docs/SYLLABUS.md); stage folders not written yet |
 
 Contributions are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
 

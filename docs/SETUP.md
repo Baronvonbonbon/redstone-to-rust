@@ -84,6 +84,7 @@ The lessons tell you when to run these:
 ./scripts/give-lab.sh sam algo      # Lesson 7.1 (a checker and mazes; your answers are in labs/algo/answers)
 ./scripts/give-lab.sh sam stack     # Lesson 8.6 (Stage 8 test scripts and an example game, so there's no answer)
 ./scripts/give-lab.sh sam rust      # Lesson 9.1 (Rust's setup script, crate kit and check-hack; no answer)
+./scripts/give-lab.sh sam os        # Stage 10 (the OS setup script and the kernel kit; no answer)
 ```
 
 The cave and the heist print the answer for you. Don't let the learner see it!
@@ -174,6 +175,29 @@ that Stage 9 uses, then switches Cargo to offline mode. It takes 5 to
 --book` opens *The Rust Programming Language* offline, and all of Stage
 9 works with no internet. The [Rust lab handbook](../labs/rust/README.md)
 explains how to fetch another crate later, if you ever need one.
+
+## Later: operating systems (Stage 10)
+
+Before Lesson 10.1, from your own account, while online:
+
+```bash
+./scripts/install-packages.sh --later   # QEMU, strace and bsdtar (if not done for Stage 8)
+./scripts/give-lab.sh sam os
+sudo usermod -aG kvm sam                # fast virtual machines; sam logs out and in again
+```
+
+Then, **as the learner, while online** (after Stage 9's `setup-rust.sh`):
+
+```bash
+bash ~/lab/os/setup-os.sh
+```
+
+It installs a pinned nightly Rust compiler for the kernel lessons,
+`bootimage`, and the `musl` target, and builds the kernel kit once, so
+that its crates are cached. It takes 5 to 10 minutes and about 1 GB.
+Lesson 10.11 also needs the internet: it downloads and installs Arch
+Linux in a virtual machine (about 2.5 GB). The
+[OS lab handbook](../labs/os/README.md) has the details.
 
 ## Checklist
 

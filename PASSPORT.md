@@ -70,6 +70,22 @@ Tick each group when all its exercises pass!
 [ ] quiz 1      [ ] quiz 2       [ ] quiz 3       [ ] ALL DONE!
 ```
 
+## Redstone OS
+
+Tick each one when it works!
+
+```
+[ ] I spied on system calls with strace         10.2
+[ ] I made a zombie (and it went away)          10.3
+[ ] My scheduler simulator                      10.4
+[ ] I fixed a race, and a deadlock              10.6-10.7
+[ ] Shelly runs a pipeline                      10.10
+[ ] I installed Arch Linux by hand              10.11
+[ ] My program was PID 1                        10.12
+[ ] My kernel painted a creeper                 10.13
+[ ] Creeper Chase on my own OS!                 10.14
+```
+
 ## Things I built that I'm proud of
 
 1.

@@ -24,7 +24,7 @@ LATER=(
   # Stage 8: C
   build-essential gdb valgrind manpages-dev
   # Stage 10: OS
-  strace ltrace qemu-system-x86 qemu-utils
+  strace ltrace qemu-system-x86 qemu-utils libarchive-tools
   # Stage 11: networking
   tcpdump wireshark dnsutils traceroute nmap
   # Stage 12: Scheme

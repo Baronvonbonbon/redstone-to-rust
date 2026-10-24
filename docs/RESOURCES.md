@@ -75,6 +75,10 @@ account of their own.
 | *Writing an OS in Rust*, Philipp Oppermann | 10 | lib | free to read; code MIT/Apache |
 | xv6 (MIT teaching OS) | 10 *(optional)* | lib | MIT |
 | Arch Wiki | 10 | `arch-wiki-docs` in Arch, or web | GFDL |
+| Arch Linux installer ISO | 10 | Lesson 10.11 downloads it (online) | free software (many licences) |
+| QEMU, `strace`, `bsdtar` | 10 | `install-packages.sh --later` | GPL / BSD |
+| Nightly Rust, `bootimage`, the `bootloader` crate | 10 | `setup-os.sh` (online once) | MIT/Apache |
+| **OS lab: setup script, kernel kit, Shelly, Redstone OS** (this repo) | 10 | built in (`labs/os`) | MIT |
 | *Computer Networks: A Systems Approach* | 11 | lib | CC BY |
 | *Beej's Guide to Network Programming* | 11 | web (PDF free) | CC BY-NC-ND |
 | *Crafting Interpreters*, Robert Nystrom | 12 | lib (source); web | CC BY-NC-ND (text) |
