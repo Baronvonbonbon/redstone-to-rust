@@ -233,6 +233,31 @@ Before Lesson 12.5, run `./scripts/give-lab.sh sam lang`: it puts
 use the Stage 5 SQL lab (`give-lab.sh sam sql`). The [language lab
 handbook](../labs/lang/README.md) has the finished interpreter, for you.
 
+## Later: specialize and contribute (Stage 13)
+
+Lessons 13.2 to 13.4 need only Git, `gcc` and the offline library. For
+Lesson 13.4, make a bundle of your copy of the course where the learner
+can read it: `git bundle create /tmp/course.bundle --all` from the
+course's folder.
+
+**The Pico path** (Lessons 13.5 to 13.7), from your own account, while
+online:
+
+```bash
+./scripts/install-packages.sh --later   # includes libudev-dev, pkg-config, Node.js
+./scripts/give-lab.sh sam pico
+sudo usermod -aG dialout sam            # for the Pico's USB serial, Lesson 13.7
+```
+
+Then, logged in as the learner and online: `bash
+~/lab/pico/setup-pico.sh` (Stage 9's `setup-rust.sh` must have run
+first). The [Pico lab handbook](../labs/pico/README.md) lists the parts
+to buy and explains loading programs and the emulator.
+
+**The Linux From Scratch path** (Lesson 13.8): download the book (stable,
+System V) from the LFS website into `/srv/redstone-library/books/lfs/`,
+and keep about 40 GB free. The lesson explains the rest.
+
 ## Checklist
 
 - [ ] Packages installed, guide logged out and back in

@@ -29,6 +29,8 @@ LATER=(
   dnsutils iputils-tracepath curl openssl
   # Stage 12: Scheme
   mit-scheme
+  # Stage 13: building elf2uf2-rs for the Pico; Node.js for the Pico emulator
+  libudev-dev pkg-config nodejs npm
 )
 
 pkgs=("${EARLY[@]}")

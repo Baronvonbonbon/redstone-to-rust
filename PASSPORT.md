@@ -126,6 +126,24 @@ Tick each one when it works!
 [ ] My own Pickaxe feature, with tests           12.14
 ```
 
+## Open Source Contributor
+
+Tick each one when it's done!
+
+```
+[ ] I chose my quest                             13.1
+[ ] I found my way round someone else's code     13.2
+[ ] I reviewed and applied a patch               13.3
+[ ] My patch was accepted into the course        13.4
+[ ] Pico path: my LED blinked                    13.5
+[ ] Pico path: a real seal-in rung               13.6
+[ ] Pico path: my fan controller                 13.7
+[ ] LFS path: my host passed the version check   13.8
+[ ] LFS path: my own Linux booted                13.8
+[ ] Someone learned from my lesson               13.9
+[ ] I showed my quest to an audience             13.10
+```
+
 ## Things I built that I'm proud of
 
 1.

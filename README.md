@@ -75,6 +75,7 @@ in Minecraft, and Rust is the systems language the course ends up in.
 | `labs/os/` | Stage 10's setup script and kernel kit, and the finished Shelly shell and Redstone OS kernel for the guide |
 | `labs/net/` | Stage 11's secret messages and dice word list, and an example riddle-door server for the guide |
 | `labs/lang/` | Stage 12's `check-pickaxe` and its tests, and the finished Pickaxe interpreter for the guide |
+| `labs/pico/` | Stage 13's Raspberry Pi Pico kit, setup script, reference programs and emulator script |
 | `scripts/` | Install packages, create the learner's account, download the offline library |
 | `PASSPORT.md` | The learner's printable progress passport |
 
@@ -82,8 +83,12 @@ in Minecraft, and Rust is the systems language the course ends up in.
 
 | Stages | State |
 |---|---|
-| 0–12 | Fully scripted lessons, with tested labs and programs |
-| 13 | Outlined in [docs/SYLLABUS.md](docs/SYLLABUS.md); stage folder not written yet |
+| 0–13 | Fully scripted lessons, with tested labs and programs |
+
+Stage 13's Pico programs were tested in the rp2040js emulator, not yet on
+a physical board, and its Linux From Scratch lesson follows the LFS book
+rather than a tested script; see the
+[Stage 13 README](stages/13-specialize/README.md).
 
 Contributions are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
 

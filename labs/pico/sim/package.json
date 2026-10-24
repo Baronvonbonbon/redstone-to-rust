@@ -1,0 +1,8 @@
+{
+  "name": "pico-sim",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "rp2040js": "1.4.1"
+  }
+}

@@ -38,7 +38,7 @@ the circuits underneath, and then back up again with much more power:
 | 10 | [Operating Systems](../stages/10-operating-systems/) | Stage 9; algebra | 14 lessons | Kernel Hacker |
 | 11 | [Networks & Security](../stages/11-networks-security/) | Stage 10; Hacker's Pledge | 16 lessons | Net Ninja |
 | 12 | [Languages & Data](../stages/12-languages-data/) | Stage 11; discrete math begun | 14 lessons | Language Designer |
-| 13 | [Specialize & Contribute](../stages/13-specialize/) | Stage 12 | Open-ended | Open Source Contributor |
+| 13 | [Specialize & Contribute](../stages/13-specialize/) | Stage 12 | 10 lessons, then an open-ended quest | Open Source Contributor |
 
 \*A "lesson" is one to three 30–45 minute sessions. Later lessons often
 take a week or more each, because they contain real projects.

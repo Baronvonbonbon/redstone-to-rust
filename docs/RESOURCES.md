@@ -90,8 +90,14 @@ account of their own.
 | *Let's Build a Simple Database* (cstack) | 12 *(optional)* | lib | MIT |
 | MIT/GNU Scheme | 12 | `install-packages.sh --later` | GPL |
 | **Language lab: check-pickaxe, its tests, the finished Pickaxe interpreter** (this repo) | 12 | built in (`labs/lang`) | MIT |
+| clox (the C interpreter from *Crafting Interpreters*) | 13 | lib (`repos/crafting-interpreters/c`) | MIT |
 | *The Embedded Rust Book* | 13 | lib | MIT/Apache |
-| Linux From Scratch | 13 | web (free) | CC BY-NC-SA / MIT |
+| Rust's `thumbv6m-none-eabi` target; `elf2uf2-rs` 2.2.0 | 13 | `setup-pico.sh` (online once) | MIT/Apache; 0BSD |
+| Pico crates: rp-pico, cortex-m-rt, embedded-hal, usb-device, usbd-serial, heapless | 13 | `setup-pico.sh` (online once) | MIT/Apache |
+| rp2040js (RP2040 emulator, Wokwi) 1.4.1, and the RP2040 bootrom | 13 *(optional)* | `setup-pico.sh` (online once) | MIT; BSD-3-Clause |
+| `libudev-dev`, `pkg-config`, Node.js | 13 | `install-packages.sh --later` | various free licences |
+| **Pico lab: kit, reference programs, emulator script** (this repo) | 13 | built in (`labs/pico`) | MIT |
+| *Linux From Scratch* (stable, System V) | 13 | hand (HTML from the LFS downloads page) | CC BY-NC-SA / MIT |
 | OSSU Computer Science | 13 | lib | MIT |
 | teachyourselfcs.com | 13 | web | free |
 
@@ -100,6 +106,6 @@ account of their own.
 | Item | Stage | Why |
 |---|---|---|
 | Raspberry Pi (any model 3 or newer) + 2 microSD cards | 5+ | The breakable computer. A spare card means instant recovery. |
-| Raspberry Pi Pico (about $5) | 13 | Embedded Rust; blinking lights and buttons |
+| Raspberry Pi Pico H (about $5; an RP2040 Pico, not a Pico W or Pico 2), micro-USB data cable | 13 | Embedded Rust: a blink, a PLC rung, a fan controller. See `labs/pico/README.md`. |
 | Breadboard, LEDs, resistors, buttons | 4, 13 | Real logic and real circuits |
 | An old, unused PC | 4 | Take it apart in Lesson 0.2! |

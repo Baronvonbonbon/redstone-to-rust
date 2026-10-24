@@ -14,11 +14,12 @@
 #   ./scripts/give-lab.sh LEARNER os       # Stage 10: setup-os.sh and the kernel kit (no answers)
 #   ./scripts/give-lab.sh LEARNER net      # Stage 11: the secret messages and the dice word list (answers in labs/net/README.md)
 #   ./scripts/give-lab.sh LEARNER lang     # Stage 12: check-pickaxe and its tests (the finished interpreter stays in labs/lang)
+#   ./scripts/give-lab.sh LEARNER pico     # Stage 13: the Pico kit, reference programs, emulator and setup-pico.sh
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust|os|net|lang}
-lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust|os|net|lang}
+name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust|os|net|lang|pico}
+lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust|os|net|lang|pico}
 home=$(getent passwd "$name" | cut -d: -f6)
 [[ -n "$home" ]] || { echo "No account called $name"; exit 1; }
 
@@ -35,7 +36,8 @@ case "$lab" in
   os)    dest="$home/lab/os"; script= ;;
   net)   dest="$home/lab/net"; script= ;;
   lang)  dest="$home/lab/lang"; script= ;;
-  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone, sql, n2t, algo, stack, rust, os, net or lang)"; exit 1 ;;
+  pico)  dest="$home/lab/pico"; script= ;;
+  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone, sql, n2t, algo, stack, rust, os, net, lang or pico)"; exit 1 ;;
 esac
 
 if [[ "$lab" == rust ]]; then
@@ -90,6 +92,23 @@ if [[ "$lab" == lang ]]; then
   sudo chown -R "$name:" "$dest/tests" "$dest/check-pickaxe"
   for d in "$home/lab" "$dest"; do sudo chown "$name:" "$d"; done
   echo "Done. The learner runs ~/lab/lang/check-pickaxe 12.5 (and so on) from Lesson 12.5."
+  exit 0
+fi
+
+if [[ "$lab" == pico ]]; then
+  # ~/lab/pico holds the learner's own Pico programs (and the emulator's
+  # node_modules), so never replace the whole folder: only refresh the kit,
+  # the reference programs, the emulator script and the setup script.
+  sudo mkdir -p "$dest/sim"
+  sudo rm -rf "$dest/kit" "$dest/reference"
+  sudo cp -r labs/pico/kit "$dest/kit"
+  sudo cp -r labs/pico/reference "$dest/reference"
+  sudo cp labs/pico/sim/package.json labs/pico/sim/pico-sim.mjs "$dest/sim/"
+  sudo cp labs/pico/setup-pico.sh "$dest/"
+  sudo chmod +x "$dest/setup-pico.sh"
+  sudo chown -R "$name:" "$dest/kit" "$dest/reference" "$dest/sim" "$dest/setup-pico.sh"
+  for d in "$home/lab" "$dest"; do sudo chown "$name:" "$d"; done
+  echo "Done. Next, as $name and online (after setup-rust.sh): bash ~/lab/pico/setup-pico.sh"
   exit 0
 fi
 
