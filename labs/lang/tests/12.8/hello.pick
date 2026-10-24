@@ -1,0 +1,3 @@
+# My first Pickaxe program
+let diamonds = 3;
+say "I have " + diamonds + " diamonds!";

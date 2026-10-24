@@ -1,0 +1,20 @@
+fun forever(n) { return forever(n + 1); }
+say forever(1);
+say double(2);
+fun add(a, b) { return a + b; }
+say add(1);
+say add(2, 3);
+return 5;
+fun quiet() { say "hi"; }
+say quiet();
+let x = 10;
+fun peek() { return x; }
+say peek();
+fun change() { x = 20; }
+change();
+say x;
+fun local() { let y = 1; return y; }
+say local();
+say y;
+fun count(n) { while true { if n > 3 { return n; } n = n + 1; } }
+say count(1);

@@ -1,0 +1,10 @@
+pickaxe> pickaxe> 16
+pickaxe> Oops: I don't know what y is
+pickaxe> pickaxe> 5
+pickaxe> Oops: there's no z yet: use let first
+pickaxe> Oops: I expected a name but found =
+pickaxe> Oops: I expected ; but found the end
+pickaxe> pickaxe> Oops: I don't know what inside is
+pickaxe> Oops: only a name can go before =
+pickaxe> Oops: a block is missing its }
+pickaxe> 

@@ -1,0 +1,12 @@
+pickaxe> (+ 1 (* 2 3))
+pickaxe> (* (+ 1 2) 3)
+pickaxe> (- (- 10 4) 3)
+pickaxe> (== (>= (+ (- x) 4) 10) true)
+pickaxe> (! true)
+pickaxe> (+ "Score: " 10)
+pickaxe> (/ (% (* 2 3) 4) 5)
+pickaxe> (!= (== a b) c)
+pickaxe> Oops: I expected a value but found the end
+pickaxe> Oops: there's something extra at the end
+pickaxe> Oops: I expected ) but found the end
+pickaxe> 

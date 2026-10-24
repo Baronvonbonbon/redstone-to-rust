@@ -1,0 +1,14 @@
+# Creeper Boom: count to 15
+let n = 1;
+while n <= 15 {
+    if n % 15 == 0 {
+        say "CREEPER BOOM";
+    } else if n % 3 == 0 {
+        say "Creeper";
+    } else if n % 5 == 0 {
+        say "Boom";
+    } else {
+        say n;
+    }
+    n = n + 1;
+}

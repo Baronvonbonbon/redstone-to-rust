@@ -85,9 +85,11 @@ account of their own.
 | `tcpdump`, `ufw` | 11 | in the Stage 11 Sandbox | BSD / GPL |
 | KeePassXC (password manager, offline) | 11 *(optional, for the guide)* | `sudo apt install keepassxc` | GPL |
 | **Net lab: secret messages, dice word list, example riddle door** (this repo) | 11 | built in (`labs/net`) | MIT |
-| *Crafting Interpreters*, Robert Nystrom | 12 | lib (source); web | CC BY-NC-ND (text) |
-| *Structure and Interpretation of Computer Programs* | 12 | web | CC BY-SA |
-| *Let's Build a Simple Database* (cstack) | 12 | web | free |
+| *Crafting Interpreters*, Robert Nystrom | 12 | lib (Markdown source); web | CC BY-NC-ND (text), MIT (code) |
+| *Structure and Interpretation of Computer Programs* (HTML5 edition) | 12 | lib | CC BY-SA |
+| *Let's Build a Simple Database* (cstack) | 12 *(optional)* | lib | MIT |
+| MIT/GNU Scheme | 12 | `install-packages.sh --later` | GPL |
+| **Language lab: check-pickaxe, its tests, the finished Pickaxe interpreter** (this repo) | 12 | built in (`labs/lang`) | MIT |
 | *The Embedded Rust Book* | 13 | lib | MIT/Apache |
 | Linux From Scratch | 13 | web (free) | CC BY-NC-SA / MIT |
 | OSSU Computer Science | 13 | lib | MIT |

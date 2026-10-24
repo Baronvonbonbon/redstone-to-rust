@@ -1,0 +1,10 @@
+# Diamonds and a chest
+let diamonds = 3;
+say "Start: " + diamonds;
+diamonds = diamonds + 5;
+say "After mining: " + diamonds;
+{
+    let diamonds = 100;
+    say "Inside the chest: " + diamonds;
+}
+say "Back outside: " + diamonds;

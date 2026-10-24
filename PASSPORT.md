@@ -106,6 +106,26 @@ Tick each one when it works!
 [ ] Someone played my puzzle trail               11.16
 ```
 
+## Language Designer
+
+Tick each one when it works!
+
+```
+[ ] My grammar made a silly sentence             12.1
+[ ] Scheme counted down to BOOM!                 12.2
+[ ] My own map, in Scheme                        12.3
+[ ] My tiny Scheme ran fact                      12.4
+[ ] Pickaxe printed its first tree               12.6
+[ ] Pickaxe worked out 1 + 2 * 3                 12.7
+[ ] Pickaxe ran a program from a file            12.8
+[ ] Creeper Boom, in my own language             12.9
+[ ] factorial, in my own language                12.10
+[ ] I proved De Morgan's law                     12.11
+[ ] An index made the diamonds 10x faster        12.12
+[ ] My Chest survived kill -9                    12.13
+[ ] My own Pickaxe feature, with tests           12.14
+```
+
 ## Things I built that I'm proud of
 
 1.

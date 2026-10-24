@@ -1,0 +1,13 @@
+pickaxe> pickaxe> Oops: forever went more than 200 calls deep
+pickaxe> Oops: there's no fun called double
+pickaxe> pickaxe> Oops: add needs 2 values, but got 1
+pickaxe> 5
+pickaxe> Oops: return can only be used inside a fun
+pickaxe> pickaxe> hi
+nothing
+pickaxe> pickaxe> pickaxe> 10
+pickaxe> pickaxe> pickaxe> 20
+pickaxe> pickaxe> 1
+pickaxe> Oops: I don't know what y is
+pickaxe> pickaxe> 4
+pickaxe> 

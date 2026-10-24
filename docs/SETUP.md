@@ -86,6 +86,7 @@ The lessons tell you when to run these:
 ./scripts/give-lab.sh sam rust      # Lesson 9.1 (Rust's setup script, crate kit and check-hack; no answer)
 ./scripts/give-lab.sh sam os        # Stage 10 (the OS setup script and the kernel kit; no answer)
 ./scripts/give-lab.sh sam net       # Lesson 11.9 (secret messages and a word list; answers in labs/net/README.md)
+./scripts/give-lab.sh sam lang      # Lesson 12.5 (check-pickaxe and its tests; no answers needed)
 ```
 
 The cave and the heist print the answer for you. Don't let the learner see it!
@@ -217,6 +218,20 @@ warning). Before Lesson 11.9, run `./scripts/give-lab.sh sam net`. Read
 the [Hacker's Pledge](HACKER-PLEDGE.md) with the learner before Lesson
 11.4. The [net lab handbook](../labs/net/README.md) has the answers and
 the safety notes.
+
+## Later: languages and data (Stage 12)
+
+Before Lesson 12.2, from your own account, while online (if not done
+already for Stage 8 or 10):
+
+```bash
+./scripts/install-packages.sh --later   # includes MIT Scheme
+```
+
+Before Lesson 12.5, run `./scripts/give-lab.sh sam lang`: it puts
+`check-pickaxe` and its tests in `~/lab/lang`. Lessons 12.11 and 12.12
+use the Stage 5 SQL lab (`give-lab.sh sam sql`). The [language lab
+handbook](../labs/lang/README.md) has the finished interpreter, for you.
 
 ## Checklist
 

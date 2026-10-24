@@ -1,0 +1,12 @@
+let x = 4;
+say x * x;
+say y;
+x = x + 1;
+say x;
+z = 1;
+let = 3;
+say 1
+{ let inside = 1; }
+say inside;
+3 = 4;
+{ say 1;

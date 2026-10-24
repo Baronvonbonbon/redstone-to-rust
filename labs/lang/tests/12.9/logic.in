@@ -1,0 +1,8 @@
+say 3 > 2 and 2 > 1;
+say 1 > 2 or 2 > 1;
+say false and 1 / 0 == 0;
+say true and 1 / 0 == 0;
+if 5 { say 1; }
+let n = 0; while n < 3 { say n; n = n + 1; }
+if 1 < 2 { say "yes"; } else { say "no"; }
+if false { say 1; } else if true { say 2; } else { say 3; }

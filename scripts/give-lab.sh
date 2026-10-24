@@ -13,11 +13,12 @@
 #   ./scripts/give-lab.sh LEARNER rust     # Lesson 9.1: setup-rust.sh, the crate kit and check-hack (no answers)
 #   ./scripts/give-lab.sh LEARNER os       # Stage 10: setup-os.sh and the kernel kit (no answers)
 #   ./scripts/give-lab.sh LEARNER net      # Stage 11: the secret messages and the dice word list (answers in labs/net/README.md)
+#   ./scripts/give-lab.sh LEARNER lang     # Stage 12: check-pickaxe and its tests (the finished interpreter stays in labs/lang)
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust|os|net}
-lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust|os|net}
+name=${1:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust|os|net|lang}
+lab=${2:?usage: $0 LEARNER cave|heist|sprites|redstone|sql|n2t|algo|stack|rust|os|net|lang}
 home=$(getent passwd "$name" | cut -d: -f6)
 [[ -n "$home" ]] || { echo "No account called $name"; exit 1; }
 
@@ -33,7 +34,8 @@ case "$lab" in
   rust)  dest="$home/lab/rust"; script= ;;
   os)    dest="$home/lab/os"; script= ;;
   net)   dest="$home/lab/net"; script= ;;
-  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone, sql, n2t, algo, stack, rust, os or net)"; exit 1 ;;
+  lang)  dest="$home/lab/lang"; script= ;;
+  *)     echo "Unknown lab '$lab' (try cave, heist, sprites, redstone, sql, n2t, algo, stack, rust, os, net or lang)"; exit 1 ;;
 esac
 
 if [[ "$lab" == rust ]]; then
@@ -74,6 +76,20 @@ if [[ "$lab" == net ]]; then
   sudo chown -R "$name:" "$dest/secrets" "$dest/words.txt"
   for d in "$home/lab" "$dest"; do sudo chown "$name:" "$d"; done
   echo "Done. The answers to the secret messages are in labs/net/README.md (for you only)."
+  exit 0
+fi
+
+if [[ "$lab" == lang ]]; then
+  # ~/lab/lang holds the learner's own Stage 12 projects, so never replace the
+  # whole folder: only refresh the checker and its tests.
+  sudo mkdir -p "$dest"
+  sudo rm -rf "$dest/tests"
+  sudo cp -r labs/lang/tests "$dest/tests"
+  sudo cp labs/lang/check-pickaxe "$dest/"
+  sudo chmod +x "$dest/check-pickaxe"
+  sudo chown -R "$name:" "$dest/tests" "$dest/check-pickaxe"
+  for d in "$home/lab" "$dest"; do sudo chown "$name:" "$d"; done
+  echo "Done. The learner runs ~/lab/lang/check-pickaxe 12.5 (and so on) from Lesson 12.5."
   exit 0
 fi
 

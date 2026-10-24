@@ -1,0 +1,41 @@
+#!/bin/bash
+# Check the learner's Pickaxe interpreter against the course's tests.
+#   check-pickaxe 12.7     # the tests for Lesson 12.7
+# From Lesson 12.8 on, it also runs every earlier lesson's tests from 12.8,
+# because those programs should still work.
+here=$(dirname "$(readlink -f "$0")")
+lesson=${1:?usage: check-pickaxe LESSON   (for example: check-pickaxe 12.7)}
+project=${PICKAXE:-$HOME/lab/lang/pickaxe}
+[[ -d "$here/tests/$lesson" ]] || { echo "There are no tests for $lesson (try 12.5 to 12.10)."; exit 1; }
+
+echo "Building $project ..."
+(cd "$project" && cargo build -q) || { echo "It doesn't build yet: fix the errors above first."; exit 1; }
+pickaxe=$project/target/debug/pickaxe
+
+lessons=$lesson
+n=${lesson#12.}
+if (( n >= 8 )); then lessons=$(seq -f "12.%g" 8 "$n"); fi
+
+passed=0
+failed=0
+for l in $lessons; do
+  for test in "$here/tests/$l"/*.pick "$here/tests/$l"/*.in; do
+    [[ -e "$test" ]] || continue
+    if [[ "$test" == *.in ]]; then
+      actual=$(cd "$(dirname "$test")" && timeout 10 "$pickaxe" < "$test" 2>&1)
+    else
+      actual=$(cd "$(dirname "$test")" && timeout 10 "$pickaxe" "$(basename "$test")" 2>&1)
+    fi
+    expected=$(cat "${test%.*}.out")
+    if [[ "$actual" == "$expected" ]]; then
+      echo "PASS  $l/$(basename "$test")"
+      passed=$((passed + 1))
+    else
+      echo "FAIL  $l/$(basename "$test")"
+      diff <(echo "$expected") <(echo "$actual") | head -10 | sed 's/^/        /'
+      failed=$((failed + 1))
+    fi
+  done
+done
+echo "$passed passed, $failed failed."
+(( failed == 0 ))

@@ -1,0 +1,12 @@
+let a = 1;
+{
+    let b = 2;
+    {
+        let a = 10;
+        say a + b;
+        b = b + 1;
+    }
+    say a + b;
+}
+say a;
+1 + 2;

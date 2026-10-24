@@ -1,0 +1,4 @@
+# Every kind of token
+if x<=10 { say x != 3; }
+let big_number = 1234567;
+say "Ssssss!" + (2 * -3) % 4 >= 1 == !false;

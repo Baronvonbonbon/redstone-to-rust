@@ -68,6 +68,8 @@ clone https://github.com/munificent/craftinginterpreters.git   repos/crafting-in
 clone https://github.com/SystemsApproach/book.git               repos/computer-networks-systems-approach
 clone https://github.com/mit-pdos/xv6-riscv.git                 repos/xv6-riscv
 clone https://github.com/ossu/computer-science.git              repos/ossu-computer-science
+clone https://github.com/sarabander/sicp.git                    repos/sicp
+clone https://github.com/cstack/db_tutorial.git                 repos/db-tutorial
 
 chmod -R a+rX "$LIB"
 
