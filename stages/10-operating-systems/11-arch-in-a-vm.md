@@ -201,7 +201,9 @@ you're the someone."
     ```
     **They should see:** a `Created symlink` line; `Installation
     finished. No error reported.`; and from `grub-mkconfig`, `Found linux
-    image: /boot/vmlinuz-linux` and `done`. **Say:** "`systemctl enable`
+    image: /boot/vmlinuz-linux` and, at the end, `done`. (A warning that
+    `os-prober will not be executed` is fine: it looks for other
+    operating systems, and this disk has none.) **Say:** "`systemctl enable`
     tells PID 1 to start `dhcpcd` at every boot. GRUB goes at the very
     start of the disk, where the firmware looks first."
 
@@ -245,17 +247,23 @@ you're the someone."
     free -h
     ip -brief address
     ```
-    **Ask:** "What's PID 1?" *(`systemd`.)* "How long did it take to
-    start?" "How much memory does it think it has?" *(About 2 GB: what
+    **They should see** `1 ?  00:00:00 systemd`, a line like `Startup
+    finished in 1.2s (kernel) + 0.9s (initrd) + 2.3s (userspace) = ...`,
+    `vda1` mounted at `/`, about 2 GB of memory, and an address like
+    `10.0.2.15/24` on a network card called `ens3`. **Ask:** "What's PID
+    1?" *(`systemd`.)* "How long did it take to start?" "How much memory does it think it has?" *(About 2 GB: what
     QEMU gave it.)* Then something fun:
     ```
     sudo pacman -S fastfetch
     fastfetch
     ```
-    (`sudo` asks for steve's password; `pacman` asks `Proceed with
-    installation? [Y/n]`: press Enter.) **They should see** a summary of
-    the VM: `OS: Arch Linux x86_64`, the kernel, the memory, and the
-    Arch logo.
+    (The first time, `sudo` prints a short lecture, "Respect the privacy
+    of others. Think before you type. With great power comes great
+    responsibility.": read it together, it's the Hacker's Pledge in three
+    lines. Then it asks for steve's password, and `pacman` asks `::
+    Proceed with installation? [Y/n]`: press Enter.) **They should see**
+    from `fastfetch` a summary of the VM, with the Arch logo: the
+    operating system, the kernel, the memory and more.
 
 18. **Snapshots: a save point.** `poweroff` the VM. On Pop!_OS:
     ```
