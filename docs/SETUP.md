@@ -87,6 +87,7 @@ The lessons tell you when to run these:
 ./scripts/give-lab.sh sam os        # Stage 10 (the OS setup script and the kernel kit; no answer)
 ./scripts/give-lab.sh sam net       # Lesson 11.9 (secret messages and a word list; answers in labs/net/README.md)
 ./scripts/give-lab.sh sam lang      # Lesson 12.5 (check-pickaxe and its tests; no answers needed)
+./scripts/give-lab.sh sam pico      # Lesson 13.5 (the Pico kit, reference programs and emulator; no answers needed)
 ```
 
 The cave and the heist print the answer for you. Don't let the learner see it!

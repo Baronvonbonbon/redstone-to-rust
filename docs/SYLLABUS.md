@@ -49,14 +49,14 @@ Coming back to the same ideas again and again is what makes them stick.
 These threads link the stages:
 
 **The Minecraft thread.** Folders are a cave (Stage 1). The Mineshaft
-wargame (Stages 1, 5 and 8). Turtle drawings of blocks (Stage 2). Circuits
+wargame (Stages 1 and 5). Turtle drawings of blocks (Stage 2). Circuits
 in Luanti, an open-source Minecraft-like game, using the Mesecons
 redstone-style mod (Stage 4). A maze solver for a block world (Stage 7).
 
 **The Mineshaft thread.** Levels 0–9 in Stage 1, levels 10–19 in Stage 5,
 and in Stage 8 the learner writes small command-line tools of their own in
-C, like the ones they used down the Mineshaft. In Stage 11 they design
-a puzzle trail for someone else.
+C (a ROT13 filter and their own `wc`), like the ones they used down the
+Mineshaft. In Stage 11 they design a puzzle trail for someone else.
 
 **The "build it again" thread.** The Nand to Tetris assembler is written
 in Python (Stage 6) and rewritten in Rust (Stage 9). The `nc`
@@ -65,9 +65,10 @@ clients in Rust (Stage 11).
 Rewriting something you already understand in a new language is the
 fastest way to learn that language.
 
-**The secret-code thread.** A Caesar cipher wheel (Stage 0), then ROT13
-and base64 in the terminal (Stages 1 and 5), ASCII as numbers (Stage 4),
-and finally real cryptography and why the old codes break (Stage 11).
+**The secret-code thread.** A Caesar cipher wheel (Stage 0), a secret-code
+machine in Python (Stage 3), ASCII as numbers (Stage 4), base64 and ROT13
+in the terminal (Stages 1 and 5), a ROT13 filter in C (Stage 8), and
+finally real cryptography and why the old codes break (Stage 11).
 
 **The math thread.** Binary dot cards (Stage 0), angles with the turtle
 (Stage 2), primes and Collatz (Stage 3), powers of two (Stage 4), two's
@@ -92,6 +93,9 @@ embedded Rust (Stage 13).
 6. **Rust** (Stage 9+): the main language from then on. Its ownership
    rules make sense once you've had memory bugs in C.
 7. **Scheme** (Stage 12, a taste): a very different way of thinking, from SICP.
+8. **Pickaxe** (Stage 12): the learner's own language, with its
+   interpreter written in Rust. In Stage 13 they read clox, a real
+   interpreter in C, and compare.
 
 ## Checkpoints
 

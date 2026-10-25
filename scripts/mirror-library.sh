@@ -82,6 +82,8 @@ Download these by hand (open the page, use its Download/PDF button) into $LIB/bo
   - OpenStax Introduction to Computer Science     openstax.org/details/books/introduction-computer-science
   - OpenStax math books for the math track        see docs/MATH-TRACK.md
   - Invent Your Own Computer Games with Python    inventwithpython.com/invent4thed/  (free to read online)
+  - Stage 13, LFS path: Linux From Scratch        linuxfromscratch.org/lfs/downloads/stable/ (System V book,
+    HTML), into $LIB/books/lfs/
   - Only if the Nand to Tetris download failed:   nand2tetris.org/software, "Software package" (desktop
     version). Unzip it in $LIB/tools/ so that $LIB/tools/nand2tetris/tools/ exists, then run
     chmod +x $LIB/tools/nand2tetris/tools/*.sh
