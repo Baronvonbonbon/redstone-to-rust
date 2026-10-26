@@ -11,7 +11,7 @@ Written for **Pop!_OS 24.04** (and Ubuntu 24.04, which it's built on).
 
 ```bash
 cd ~
-git clone <this repository's URL> redstone-to-rust
+git clone https://github.com/Baronvonbonbon/redstone-to-rust.git
 cd redstone-to-rust
 ```
 
