@@ -31,10 +31,11 @@ point).
       online at [linuxfromscratch.org/lfs/read.html](https://www.linuxfromscratch.org/lfs/read.html),
       choosing the **stable**, **System V** version (it's simpler than
       the systemd one).
-- [ ] Download the book for offline use: from the same site's
-      **Downloads** page, the `stable` folder has the whole book as a
-      single HTML file or a tarball. Save it in
-      `/srv/redstone-library/books/lfs/`. The book is CC BY-NC-SA (see
+- [ ] Check the book is in the library for offline use:
+      `ls /srv/redstone-library/books/lfs/` shows a file like
+      `LFS-BOOK-12.4-NOCHUNKS.html` (the whole book in one page; open it
+      in the browser). `mirror-library.sh` downloads it; re-run that
+      script if it's missing. The book is CC BY-NC-SA (see
       Lesson 13.3), so keep it for your own use; don't put it in the
       course's repository.
 - [ ] Check there's room: `df -h ~` should show at least 40 GB free.

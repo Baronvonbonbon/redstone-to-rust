@@ -255,9 +255,9 @@ Then, logged in as the learner and online: `bash
 first). The [Pico lab handbook](../labs/pico/README.md) lists the parts
 to buy and explains loading programs and the emulator.
 
-**The Linux From Scratch path** (Lesson 13.8): download the book (stable,
-System V) from the LFS website into `/srv/redstone-library/books/lfs/`,
-and keep about 40 GB free. The lesson explains the rest.
+**The Linux From Scratch path** (Lesson 13.8): `mirror-library.sh` has
+already put the book (stable, System V) in
+`/srv/redstone-library/books/lfs/`; keep about 40 GB free. The lesson explains the rest.
 
 ## Checklist
 

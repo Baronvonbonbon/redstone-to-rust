@@ -57,16 +57,16 @@ reproduce or test the build itself.
   handbook](../../labs/pico/README.md).
 - **The LFS path:** the Arch VM from Lesson 10.11, about 40 GB of free
   disk, the internet for downloading the sources, and the *Linux From
-  Scratch* book (stable, System V), downloaded from
-  [linuxfromscratch.org](https://www.linuxfromscratch.org/lfs/) into
-  the library.
+  Scratch* book (stable, System V, from
+  [linuxfromscratch.org](https://www.linuxfromscratch.org/lfs/)), which
+  `mirror-library.sh` puts in the library's `books/lfs`.
 - A "student" for Lesson 13.9, and an audience for Lesson 13.10.
 
 ## A note on the internet
 
 Lessons 13.1–13.7, 13.9 and 13.10 work offline, once the Pico setup has
-run. Lesson 13.8 needs the internet to download the LFS book and
-sources (about 500 MB). Sending a learner's patch to a public project
+run. Lesson 13.8 needs the internet to download the LFS
+package sources (about 500 MB). Sending a learner's patch to a public project
 needs an account, which is the guide's, never the learner's (Lesson
 13.4).
 

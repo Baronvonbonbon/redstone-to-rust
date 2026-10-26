@@ -71,6 +71,14 @@ clone https://github.com/ossu/computer-science.git              repos/ossu-compu
 clone https://github.com/sarabander/sicp.git                    repos/sicp
 clone https://github.com/cstack/db_tutorial.git                 repos/db-tutorial
 
+echo "Linux From Scratch book (Stage 13; stable, System V, one HTML file)..."
+# The file name has the version in it, so read it from the folder listing.
+LFS_URL=https://www.linuxfromscratch.org/lfs/downloads/stable/
+lfs_book=$(curl -fsSL "$LFS_URL" | grep -oE 'LFS-BOOK-[0-9.]+-NOCHUNKS\.html' | head -1)
+mkdir -p "$LIB/books/lfs"
+if [[ -n $lfs_book ]]; then fetch "$LFS_URL$lfs_book" "books/lfs/$lfs_book"
+else failed+=("$LFS_URL (Linux From Scratch book)"); fi
+
 chmod -R a+rX "$LIB"
 
 cat <<EOF
@@ -82,8 +90,6 @@ Download these by hand (open the page, use its Download/PDF button) into $LIB/bo
   - OpenStax Introduction to Computer Science     openstax.org/details/books/introduction-computer-science
   - OpenStax math books for the math track        see docs/MATH-TRACK.md
   - Invent Your Own Computer Games with Python    inventwithpython.com/invent4thed/  (free to read online)
-  - Stage 13, LFS path: Linux From Scratch        linuxfromscratch.org/lfs/downloads/stable/ (System V book,
-    HTML), into $LIB/books/lfs/
   - Only if the Nand to Tetris download failed:   nand2tetris.org/software, "Software package" (desktop
     version). Unzip it in $LIB/tools/ so that $LIB/tools/nand2tetris/tools/ exists, then run
     chmod +x $LIB/tools/nand2tetris/tools/*.sh
